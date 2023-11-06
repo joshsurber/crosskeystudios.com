@@ -1,0 +1,42 @@
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.screenshots {
+  position: relative;
+  background-image: url(fancyscreens.png);
+  width: 3458px;
+  /* height: 2110px; */
+  aspect-ratio: 1.6388625592417;
+  resize:horizontal;
+  overflow: hidden;
+
+}
+.screenshots::before {
+  content: url(fancyscreens.png);
+  position: absolute;
+  scale: 0.5;
+  inset: 0 0 0 0;
+  width:100%;
+  isolation: isolate;
+  z-index: 5;
+}
+.screenshots > div {
+  position: absolute;
+  /* opacity: 50%; */
+  overflow: hidden;
+}
+.screenshots img {
+  /* display: none; */
+  width: 100%;
+}
+.screenshots .desktop {
+  inset: 3.5% 9.7% 39.8% 34.9%;
+}
+.screenshots .tablet {
+  inset: 16.4% 69.2% 25.6% 4.4%;
+}
+.screenshots .mobile {
+  inset: 36.7% 60.3% 10.4% 24.8%;
+}
