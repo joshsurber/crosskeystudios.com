@@ -1,0 +1,26 @@
+---
+const { title } = Astro.props;
+import Nav from "../components/Nav.astro";
+import { Image, getImage } from "astro:assets";
+import hero_bg from "../assets/hero_bg.png";
+import logo from "../assets/logo.png"; // Image is 1600x900
+const hero = await getImage({ src: hero_bg, format: "webp" });
+import Logo from "../components/Logo.astro";
+---
+
+<div style={`--bg-img: url(${hero.src});`}>
+  <Logo />
+  <Nav />
+  <h1>{title}</h1>
+  <slot />
+  <!-- <Image src={logo} alt="Cross Key Studios logo" width="256" /> -->
+</div>
+
+<style>
+  div {
+    /* background-image: var(--bg-img); */
+    background: black;
+    background-size: cover;
+    min-height: 20rem;
+  }
+</style>

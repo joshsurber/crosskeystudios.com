@@ -1,0 +1,87 @@
+---
+import Nav from "../components/Nav.astro"
+---
+
+<header>
+  <a href="/">
+    <Logo alt="Cross Key Studios logo" width="256" />
+  </a>
+  <Nav />
+</header>
+
+<style>
+  header {
+    display: grid;
+    grid-template: "logo nav";
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+  }
+
+    /* Start dark and dead */
+    filter: grayscale(100%) brightness(30%) contrast(80%);
+
+    animation: neonFlicker 3.8s ease-out forwards;
+    &:hover {
+      /* filter: grayscale(0%) brightness(120%) contrast(110%) */
+      /* drop-shadow(0 0 6px #00eaff) drop-shadow(0 0 14px #00eaff); */
+    }
+  }
+  @keyframes neonFlicker {
+    0% {
+      filter: grayscale(100%) brightness(25%) contrast(80%);
+    }
+
+    10% {
+      filter: grayscale(0%) brightness(140%) contrast(120%);
+      /* drop-shadow(0 0 6px #00eaff); */
+    }
+
+    15% {
+      filter: grayscale(100%) brightness(30%);
+    }
+
+    25% {
+      filter: grayscale(0%) brightness(160%) contrast(120%);
+      /* drop-shadow(0 0 10px #00eaff); */
+    }
+
+    35% {
+      filter: grayscale(100%) brightness(35%);
+    }
+
+    55% {
+      filter: grayscale(0%) brightness(120%) contrast(110%);
+      /* drop-shadow(0 0 6px #00eaff) drop-shadow(0 0 14px #00eaff); */
+    }
+
+    100% {
+      filter: grayscale(0%) brightness(120%) contrast(110%);
+      /* drop-shadow(0 0 6px #00eaff) drop-shadow(0 0 14px #00eaff); */
+    }
+  }
+
+
+header {
+  position: fixed; /* Keep it at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays above content */
+  
+  /* Glassmorphism Effect */
+  background: rgba(11, 14, 20, 0.8); /* Deep Midnight with transparency */
+  backdrop-filter: blur(12px); /* Frost effect */
+  -webkit-backdrop-filter: blur(12px);
+  
+  border-bottom: 1px solid rgba(0, 229, 255, 0.1); /* Subtle neon divider */
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  height: 80px;
+}
+</style>

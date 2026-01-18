@@ -1,0 +1,39 @@
+---
+const navLinks = [
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<nav>
+  <ul>
+    {
+      navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="nav-item">
+            {link.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+  a {
+    /* color: #8e9aaf; /* Slate Gray from your style guide */ */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #00e5ff; /* Electric Cyan glow */
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+  }
+</style>

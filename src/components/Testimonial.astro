@@ -1,0 +1,13 @@
+---
+const { name, title } = Astro.props;
+---
+
+<blockquote>
+  <slot />
+  <cite>{name}, {title}</cite>
+</blockquote>
+
+<style>
+  blockquote {
+  }
+</style>

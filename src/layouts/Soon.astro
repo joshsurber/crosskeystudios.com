@@ -1,0 +1,46 @@
+---
+import "../styles/style.css";
+import Main from "../components/Main.astro";
+import Footer from "../components/Footer.astro";
+interface Props {
+  title: string;
+  isHome?: boolean; // Optional boolean prop
+}
+
+const { title, isHome = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="generator" content={Astro.generator} />
+    <title>Cross Key Studios</title>
+    <!-- <link rel="stylesheet" href="/style.css" /> -->
+  </head>
+
+  <body>
+    <main><slot /></main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  body {
+    * {
+      margin-inline: auto;
+      text-align: center;
+    }
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+  }
+  main {
+    place-content: center;
+  }
+  section {
+    display: flex;
+  }
+</style>

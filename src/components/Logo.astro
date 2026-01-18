@@ -1,0 +1,109 @@
+---
+import { Image, getImage } from "astro:assets";
+import logo_blue from "../assets/logo_blue.png";
+// const blue = await getImage({ src: logo_blue, format: "webp" });
+import logo_black from "../assets/logo_black.png";
+const black = await getImage({ src: logo_black, format: "webp" });
+import logo_white from "../assets/logo_white.png";
+const white = await getImage({ src: logo_white, format: "webp" });
+---
+
+<div
+  style={`
+     --icon-black: url(${black.src});
+     --icon-white: url(${white.src});
+     `}
+>
+  <!-- width:${logo_blue.width}px; -->
+  <!-- height:${logo_blue.height}px; -->
+  <!-- --icon-blue: url(${blue.src}); -->
+  <span>Cross Key Studios</span>
+  <Image src={logo_blue} alt="" />
+</div>
+
+<style>
+  div {
+    /* width: 500px; */
+    /* height: 500px; */
+    aspect-ratio: 644/496;
+    max-width: 256px;
+
+    /* Layer 1: The Blue Icon/Studios (Top) */
+    /* Layer 2: The White "Cross Key" Text (Bottom) */
+    background-image: var(--icon-white);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: grayscale(100%) brightness(0.4);
+    animation: neon-on 3s ease-in-out forwards;
+  }
+  span {
+    display: none;
+  }
+  img {
+    /* Start State */
+    width: 100%;
+    height: 100%;
+    &:hover {
+      animation: neon-hover 1s ease-in-out infinite;
+    }
+  }
+
+  @keyframes neon-on {
+    0% {
+      filter: grayscale(100%) brightness(0.4);
+    }
+    7% {
+      filter: grayscale(50%) brightness(1.4) drop-shadow(0 0 8px #00d4ff);
+    }
+    10% {
+      filter: grayscale(100%) brightness(0.4);
+    }
+    15% {
+      filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 5px #00d4ff);
+    }
+    20%,
+    40% {
+      filter: grayscale(80%) brightness(0.5);
+    }
+    /* Final State */
+    30%,
+    45% {
+      filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 5px #00d4ff);
+    }
+    100% {
+      filter: grayscale(0%) brightness(1);
+    }
+  }
+  @keyframes neon-hover {
+    /* 0% { */
+    /*   filter: brightness(0.3) drop-shadow(0 0 0px transparent); */
+    /* } */
+
+    /* The Flicker moments - adding multiple shadows for a "bloom" */
+    20%,
+    24%,
+    55% {
+      filter: grayscale(0%) brightness(1.5) drop-shadow(0 0 5px #00d4ff)
+        drop-shadow(0 0 15px #00d4ff);
+    }
+
+    /* The "Off" moments during flicker */
+    22% {
+      filter: grayscale(100%) brightness(0.3) drop-shadow(0 0 0px transparent);
+    }
+
+    /* Final "On" state - a subtle, steady glow */
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      filter: grayscale(0%) brightness(1.1) drop-shadow(0 0 3px #00d4ff)
+        drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+    }
+  }
+</style>

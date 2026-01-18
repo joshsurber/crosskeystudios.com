@@ -1,0 +1,103 @@
+/* @link https://utopia.fyi/type/calculator?c=360,16,1.2,1240,20,1.25,4,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/space/calculator?c=360,16,1.2,1240,20,1.25,4,2,&s=0.75,1.5|2|3|4|6,&g=s,l,xl,12 */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --size-xs: clamp(0.6944rem, 0.6513rem + 0.1919vw, 0.8rem);
+  --size-s: clamp(0.8333rem, 0.7652rem + 0.303vw, 1rem);
+  --size-m: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
+  --size-l: clamp(1.2rem, 1.0517rem + 0.6591vw, 1.5625rem);
+  --size-xl: clamp(1.44rem, 1.2301rem + 0.933vw, 1.9531rem);
+  --size-2x: clamp(1.728rem, 1.4362rem + 1.2971vw, 2.4414rem);
+  --size-3x: clamp(2.0736rem, 1.6734rem + 1.7785vw, 3.0518rem);
+
+  --space-xs: clamp(0.75rem, 0.6733rem + 0.3409cqi, 0.9375rem);
+  --space-s: clamp(1rem, 0.8977rem + 0.4545cqi, 1.25rem);
+  --space-m: clamp(1.5rem, 1.3466rem + 0.6818cqi, 1.875rem);
+  --space-l: clamp(2rem, 1.7955rem + 0.9091cqi, 2.5rem);
+  --space-xl: clamp(3rem, 2.6932rem + 1.3636cqi, 3.75rem);
+  --space-2x: clamp(4rem, 3.5909rem + 1.8182cqi, 5rem);
+  --space-3x: clamp(6rem, 5.3864rem + 2.7273cqi, 7.5rem);
+  /* One-up pairs */
+  --space-xs-s: clamp(0.75rem, 0.5455rem + 0.9091cqi, 1.25rem);
+  --space-s-m: clamp(1rem, 0.642rem + 1.5909cqi, 1.875rem);
+  --space-m-l: clamp(1.5rem, 1.0909rem + 1.8182cqi, 2.5rem);
+  --space-l-x: clamp(2rem, 1.2841rem + 3.1818cqi, 3.75rem);
+  --space-xl-2x: clamp(3rem, 2.1818rem + 3.6364cqi, 5rem);
+  --space-2x-3x: clamp(4rem, 2.5682rem + 6.3636cqi, 7.5rem);
+
+  --color-primary: hsl(230 100% 65%);
+  --color-secondary: hsl(190 100% 65%);
+  --color-surface: hsl(227, 25%, 11%);
+  --color-text: hsl(218 17% 62%);
+  --color-shadow: hsl(215, 18%, 12%);
+  --gradient-linear: linear-gradient(
+    in oklab,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+}
+body {
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+a {
+  color: var(--color-primary);
+  background: var(--gradient-linear);
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+  &:hover:not(:has(> img)),
+  &:focus:not(:has(> img)) {
+    color: var(--color-secondary);
+    text-shadow: 0 0 1px;
+    animation: neon-flicker 1.5s infinite alternate;
+  }
+}
+@keyframes neon-flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    filter: brightness(100%) drop-shadow(0 0 5px #00e5ff);
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.7;
+    filter: brightness(150%) drop-shadow(0 0 15px #00e5ff);
+  }
+  22% {
+    opacity: 0.4;
+    filter: brightness(50%);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-primary);
+  /* text-shadow: 0 0 0.125em var(--color-primary); */
+  background: var(--gradient-linear);
+  background-clip: text;
+  color: transparent;
+  text-wrap: balance;
+}
+p {
+  max-width: 65ch;
+  margin-inline: auto;
+  text-wrap: pretty;
+}

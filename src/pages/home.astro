@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import Project from "../components/Project.astro";
+import Testimonial from "../components/Testimonial.astro";
+---
+
+<Layout title="Cross Key Studios" isHome={true}>
+  <!-- <Hero title="Building Cutting-Edge Websites & Digital Solutions"> -->
+  <!--   <p>We are fucking awesome!</p> -->
+  <!-- </Hero> -->
+
+  <Section title="What We Do">
+    <Card title="">Web Dev</Card>
+    <Card title="">UI/UX Design</Card>
+    <Card title="">SEO & Marketting</Card>
+  </Section>
+
+  <Section title="Portfolio">
+    <Project title="CR Vegan Eats" href="http://crveganeats.com" image="" />
+    <Project title="http://tntcakery.con" href="TNT Cakery" image="" />
+    <Project
+      title="Ignite God's Lite"
+      href="http://ignite-gods-lite.com"
+      image=""
+    />
+
+    <Section title="Testimonials">
+      <Testimonial name="Tina O." title="Baker">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam est
+        similique debitis omnis magnam nobis consequuntur qui voluptas odio
+        veritatis!
+      </Testimonial>
+      <Testimonial name="Barbie L." title="Fat woman">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut veritatis
+        commodi quasi aperiam cum quod, laboriosam libero adipisci autem.
+        Consectetur.
+      </Testimonial>
+      <Testimonial name="Cynthia and Ruben J." title="Vegan hippies">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus neque
+        cumque dolore expedita accusamus nobis consectetur, esse laboriosam
+        numquam omnis!
+      </Testimonial>
+    </Section>
+  </Section>
+</Layout>
