@@ -5,11 +5,11 @@ import Hero from "../components/Hero.astro";
 import Main from "../components/Main.astro";
 import Footer from "../components/Footer.astro";
 interface Props {
-  title: string;
+  title?: string;
   isHome?: boolean; // Optional boolean prop
 }
 
-const { title, isHome = false } = Astro.props;
+const { title='Cross Key Studios', isHome = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +19,7 @@ const { title, isHome = false } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="generator" content={Astro.generator} />
-    <title>Cross Key Studios</title>
+    <title>{title}</title>
     <!-- <link rel="stylesheet" href="/style.css" /> -->
   </head>
 
