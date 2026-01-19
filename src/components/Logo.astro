@@ -9,14 +9,9 @@ const white = await getImage({ src: logo_white, format: "webp" });
 interface Props {
     width?: number;
     height?: number;
+    turnOn?: boolean;
 }
-let { width = 644, height = 496 } = Astro.props;
-if (width && !height) {
-    width /= 16;
-}
-if (height && !width) {
-    height /= 16;
-}
+let { width = 644, height = 496, turnOn = false } = Astro.props;
 ---
 
 <div
@@ -30,9 +25,20 @@ if (height && !width) {
   <!-- width:${logo_blue.width}px; -->
   <!-- height:${logo_blue.height}px; -->
   <!-- --icon-blue: url(${blue.src}); -->
-  <span>Cross Key Studios</span>
-  <Image src={logo_blue} alt="" />
+  <a href='/'>
+      <span>Cross Key Studios</span>
+      <Image src={logo_blue} alt="" />
+  </a>
 </div>
+
+{turnOn && (
+<style>
+    div {
+        --filter: grayscale(100%) brightness(0.4);
+        --animation: neon-on 3s ease-in-out forwards;
+    }
+</style>
+)}
 
 <style>
   div {
