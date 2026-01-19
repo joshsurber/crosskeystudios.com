@@ -1,15 +1,20 @@
 ---
 const { title } = Astro.props;
-import Nav from "../components/Nav.astro";
-import { Image, getImage } from "astro:assets";
+
+import { getImage, Image } from "astro:assets";
 import hero_bg from "../assets/hero_bg.png";
+import Nav from "../components/Nav.astro";
+
 const hero = await getImage({ src: hero_bg, format: "webp" });
+
 import Logo from "../components/Logo.astro";
 ---
 
-<div class="hero" style={`--bg-img: url(${hero.src});`}>
-  <Logo height=6 />
-  <Nav />
+<div class="wrap" style={`--bg-img: url(${hero.src});`}>
+  <div class="logo">
+    <Logo turnOn={true} />
+  </div>
+  <nav><Nav /></nav>
   <h1>{title}</h1>
   <slot />
   <!-- <Image src={logo} alt="Cross Key Studios logo" width="256" /> -->
@@ -17,11 +22,15 @@ import Logo from "../components/Logo.astro";
 
 <style>
   div {
-    /* background-image: var(--bg-img); */
-    background: black;
+    background: var(--bg-img) center black;
     background-size: cover;
     min-height: 20rem;
-    --filter: grayscale(100%) brightness(0.4);
-    --animation: neon-on 3s ease-in-out forwards;
+  }
+  .logo {
+    width: 20rem;
+    background: var(--color-surface);
+    border: 0.25rem solid var(--color-shadow);
+    padding: 3rem;
+    border-radius: 1rem;
   }
 </style>

@@ -1,13 +1,12 @@
 ---
 const navLinks = [
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+    { name: "Services", href: "/services" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
 ];
 ---
 
-<nav>
   <ul>
     {
       navLinks.map((link) => (
@@ -19,12 +18,12 @@ const navLinks = [
       ))
     }
   </ul>
-</nav>
 
 <style>
-  nav {
+  ul {
     display: flex;
     gap: 2rem;
+    list-style-type: none;
   }
   a {
     /* color: #8e9aaf; /* Slate Gray from your style guide */ */
