@@ -1,22 +1,27 @@
 ---
 import Image from "Astro:assets";
-import Layout from "../layouts/Soon.astro";
-import Section from "../components/Section.astro";
 import Logo from "../components/Logo.astro";
+import Section from "../components/Section.astro";
+import Layout from "../layouts/Soon.astro";
 ---
 
 <Layout title="Cross Key Studios" isHome={true}>
-  <!-- <Hero title="Building Cutting-Edge Websites & Digital Solutions"> -->
-  <!--   <p>We are fucking awesome!</p> -->
-  <!-- </Hero> -->
 
-  <Logo />
+  <Logo width={25} />
+  <hr>
   <Section title="Coming soon...">
     <p>
-      Until then, contact <a href="mailto:info@crosskeystudios.com"
-        >info@crosskeystudios.com</a
-      > or call
+      Until then, contact <a href="mailto:info@crosskeystudios.com">info@crosskeystudios.com</a> or call/text
       <a href="tel:8027677539">80-CROSS-KEY</a>
     </p>
   </Section>
 </Layout>
+
+<style>
+    body{
+    --filter: grayscale(100%) brightness(0.4);
+    --animation: neon-on 3s ease-in-out forwards;
+    }
+    hr{margin-block:2rem}
+</style>
+
