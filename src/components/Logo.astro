@@ -36,6 +36,7 @@ let { width = 644, height = 496, turnOn = false } = Astro.props;
     div {
         --filter: grayscale(100%) brightness(0.4);
         --animation: neon-on 3s ease-in-out forwards;
+        --animation: neonStartupDelayed 3s ease-in-out forwards;
     }
 </style>
 )}
@@ -91,6 +92,28 @@ let { width = 644, height = 496, turnOn = false } = Astro.props;
       filter: grayscale(0%) brightness(1);
     }
   }
+
+@keyframes neonStartupDelayed {
+  /* Completely Off */
+  0%   { opacity: 0; scale:0.98}
+  19%  { opacity: 0; scale:0.98}
+
+  /* The Initial Sparks */
+  20%  { opacity: 1; scale:1}
+  22%  { opacity: 0; scale:0.98}
+  24%  { opacity: 1; scale:1}
+  25%  { opacity: 0; scale:0.98}
+  
+  /* The Struggle and Catch */
+  30%  { opacity: 1; scale:1}
+  33%  { opacity: 0.2; scale:1}
+  38%  { opacity: 1; scale:1}
+  
+  /* Stabilization and Final Glow */
+  45%  { opacity: 0.9; }
+  50%  ,
+  100% { opacity: 1; filter:none;scale:1}
+}
   @keyframes neon-hover {
     /* 0% { */
     /*   filter: brightness(0.3) drop-shadow(0 0 0px transparent); */
