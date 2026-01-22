@@ -8,23 +8,23 @@
   --size-m: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
   --size-l: clamp(1.2rem, 1.0517rem + 0.6591vw, 1.5625rem);
   --size-xl: clamp(1.44rem, 1.2301rem + 0.933vw, 1.9531rem);
-  --size-2x: clamp(1.728rem, 1.4362rem + 1.2971vw, 2.4414rem);
-  --size-3x: clamp(2.0736rem, 1.6734rem + 1.7785vw, 3.0518rem);
+  --size-2xl: clamp(1.728rem, 1.4362rem + 1.2971vw, 2.4414rem);
+  --size-3xl: clamp(2.0736rem, 1.6734rem + 1.7785vw, 3.0518rem);
 
   --space-xs: clamp(0.75rem, 0.6733rem + 0.3409cqi, 0.9375rem);
   --space-s: clamp(1rem, 0.8977rem + 0.4545cqi, 1.25rem);
   --space-m: clamp(1.5rem, 1.3466rem + 0.6818cqi, 1.875rem);
   --space-l: clamp(2rem, 1.7955rem + 0.9091cqi, 2.5rem);
   --space-xl: clamp(3rem, 2.6932rem + 1.3636cqi, 3.75rem);
-  --space-2x: clamp(4rem, 3.5909rem + 1.8182cqi, 5rem);
-  --space-3x: clamp(6rem, 5.3864rem + 2.7273cqi, 7.5rem);
+  --space-2xl: clamp(4rem, 3.5909rem + 1.8182cqi, 5rem);
+  --space-3xl: clamp(6rem, 5.3864rem + 2.7273cqi, 7.5rem);
   /* One-up pairs */
   --space-xs-s: clamp(0.75rem, 0.5455rem + 0.9091cqi, 1.25rem);
   --space-s-m: clamp(1rem, 0.642rem + 1.5909cqi, 1.875rem);
   --space-m-l: clamp(1.5rem, 1.0909rem + 1.8182cqi, 2.5rem);
   --space-l-x: clamp(2rem, 1.2841rem + 3.1818cqi, 3.75rem);
-  --space-xl-2x: clamp(3rem, 2.1818rem + 3.6364cqi, 5rem);
-  --space-2x-3x: clamp(4rem, 2.5682rem + 6.3636cqi, 7.5rem);
+  --space-xl-2xl: clamp(3rem, 2.1818rem + 3.6364cqi, 5rem);
+  --space-2xl-3xl: clamp(4rem, 2.5682rem + 6.3636cqi, 7.5rem);
 
   --color-primary: hsl(230 100% 65%);
   --color-secondary: hsl(190 100% 65%);
