@@ -1,12 +1,49 @@
 ---
-
+const { title } = Astro.props;
 ---
 
 <div>
+  <h3>{title}</h3>
   <slot />
 </div>
 
 <style>
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0turn;
+    inherits: true;
+  }
+  /* Individual Card Styling */
   div {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 229, 255, 0.1); /* Subtle Cyan Border */
+    padding: 2.5rem;
+    border-radius: 4px; /* Sharp, professional corners */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      border-color: #00e5ff; /* Electric Cyan */
+      border-color: transparent;
+      background:
+        conic-gradient(black 0 0) padding-box,
+        var(--gradient-linear) border-box;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+    }
+  }
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: #8e9aaf; /* Slate Gray */
+    line-height: 1.6;
+    font-size: 1rem;
   }
 </style>
