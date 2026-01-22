@@ -28,9 +28,22 @@ const { title } = Astro.props;
       border-color: transparent;
       background:
         conic-gradient(black 0 0) padding-box,
-        var(--gradient-linear) border-box;
+        /* var(--gradient-linear) border-box; */
+        conic-gradient(
+            from var(--angle),
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary)
+          )
+          border-box;
+      animation: rotate 3s linear infinite;
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+    }
+  }
+  @keyframes rotate {
+    to {
+      --angle: 1turn;
     }
   }
 
