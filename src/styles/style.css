@@ -29,12 +29,18 @@
   --color-primary: hsl(230 100% 65%);
   --color-secondary: hsl(190 100% 65%);
   --color-surface: hsl(227, 25%, 11%);
-  --color-text: hsl(218 17% 62%);
+  --color-text: hsl(217 17% 62%);
   --color-shadow: hsl(215, 18%, 12%);
   --gradient-linear: linear-gradient(
     in oklab,
     var(--color-primary),
     var(--color-secondary)
+  );
+  --gradient-conic: conic-gradient(
+    in oklab,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-primary)
   );
 }
 body {
@@ -45,14 +51,14 @@ body {
   width: 100%;
   height: 100%;
 }
-a {
+:any-link {
   color: var(--color-primary);
   background: var(--gradient-linear);
   background-clip: text;
   color: transparent;
   text-decoration: none;
-  &:hover:not(:has(> img)),
-  &:focus:not(:has(> img)) {
+  &:hover:not(:has(> img)):not(.active),
+  &:focus:not(:has(> img)):not(.active) {
     color: var(--color-secondary);
     text-shadow: 0 0 1px;
     animation: neon-flicker 1.5s infinite alternate;

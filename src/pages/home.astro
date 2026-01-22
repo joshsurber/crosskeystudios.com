@@ -2,21 +2,45 @@
 import Layout from "../layouts/Layout.astro";
 import ServiceGrid from "../components/ServiceGrid.astro";
 import Section from "../components/Section.astro";
+import Cards from "../components/Cards.astro";
 import Card from "../components/Card.astro";
 import Project from "../components/Project.astro";
 import Testimonial from "../components/Testimonial.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="Cross Key Studios" isHome={true}>
-  <!-- <Hero title="Building Cutting-Edge Websites & Digital Solutions"> -->
-  <!--   <p>We are fucking awesome!</p> -->
-  <!-- </Hero> -->
+  <Hero title="Digital Craft from the Ground Up.">
+    Cross Key Studios: A San Antonio-based web studio specializing in bespoke,
+    hand-coded digital experiences.
+  </Hero>
 
-  <Section title="What We Do">
-    <Card title="">Web Dev</Card>
-    <Card title="">UI/UX Design</Card>
-    <Card title="">SEO & Marketting</Card>
-  </Section>
+  <p>
+    The "Studio" Story: We believe the best work isn't found in a template.
+    Inspired by the intersection of precision and creativity, we build websites
+    that act as a permanent, high-performance home for your brand online.
+  </p>
+
+  <Cards title="What we do">
+    <Card title="Custom Web Apps">
+      Hand-coded logic tailored specifically to your business workflow.
+    </Card>
+    <Card title="E-commerce">
+      Bespoke storefronts designed for smooth, high-conversion transactions.
+    </Card>
+    <Card title="UI UX Design">
+      Clean, high-contrast interfaces with our signature neon glow.
+    </Card>
+    <Card title="Performance">
+      Ultra-fast load times achieved through lightweight, purposeful code.
+    </Card>
+    <Card title="Brand Identity">
+      Developing a visual language that matches your studio's ambition.
+    </Card>
+    <Card title="API Logic">
+      Connecting your custom website to the digital tools you use daily.
+    </Card>
+  </Cards>
 
   <Section title="Portfolio">
     <Project title="CR Vegan Eats" href="http://crveganeats.com" image="" />
@@ -45,27 +69,4 @@ import Testimonial from "../components/Testimonial.astro";
       numquam omnis!
     </Testimonial>
   </Section>
-  <ServiceGrid />
-  Hero Headline: Digital Craft from the Ground Up.
-  <br />
-  Subheadline: Cross Key Studios: A San Antonio-based web studio specializing in bespoke,
-  hand-coded digital experiences.
-  <br />
-  The "Studio" Story: We believe the best work isn't found in a template. Inspired
-  by the intersection of precision and creativity, we build websites that act as a
-  permanent, high-performance home for your brand online.
-  <br />
-  3x2 Grid Section: (Use the 3x2 neon icon grid here)
-  <br />
-  Custom Web Apps: Hand-coded logic tailored to your workflow.
-  <br />
-  E-commerce: Bespoke storefronts designed for smooth transactions.
-  <br />
-  UI/UX Design: Clean, high-contrast interfaces with a signature neon glow.
-  <br />
-  Performance: Ultra-fast load times through lightweight, custom code.
-  <br />
-  Brand Identity: Developing a visual language that matches your ambition.
-  <br />
-  API Integration: Making your website talk to the tools you already use.
 </Layout>

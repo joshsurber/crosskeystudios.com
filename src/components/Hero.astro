@@ -14,7 +14,7 @@ import Logo from "../components/Logo.astro";
   <div class="logo">
     <Logo turnOn={true} />
   </div>
-  <nav><Nav /></nav>
+  <!-- <nav><Nav /></nav> -->
   <h1>{title}</h1>
   <slot />
   <!-- <Image src={logo} alt="Cross Key Studios logo" width="256" /> -->
@@ -25,6 +25,15 @@ import Logo from "../components/Logo.astro";
     background: var(--bg-img) center black;
     background-size: cover;
     min-height: 20rem;
+    color: white;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: white;
   }
   .logo {
     width: 20rem;

@@ -6,8 +6,8 @@ import Hero from "../components/Hero.astro";
 import Main from "../components/Main.astro";
 
 interface Props {
-    title?: string;
-    isHome?: boolean; // Optional boolean prop
+  title?: string;
+  isHome?: boolean; // Optional boolean prop
 }
 
 const { title = "Cross Key Studios", isHome = false } = Astro.props;
@@ -25,8 +25,8 @@ const { title = "Cross Key Studios", isHome = false } = Astro.props;
   </head>
 
   <body>
-    <header>{isHome ? <Hero /> : <Header />}</header>
-    <!-- <Header /> -->
+    <!-- <header>{isHome ? <Hero /> : <Header />}</header> -->
+    <Header />
     <main><Main><slot /></Main></main>
     <footer><Footer /></footer>
   </body>
