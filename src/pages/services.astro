@@ -1,8 +1,80 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout>
+  <section>
+    <header>
+      <p>Zero Templates. Zero Bloat. Maximum Velocity.</p>
+      <h1>The Architecture of Performance</h1>
+      <p>
+        We don’t just build websites; we engineer digital assets that
+        outperform, outrun, and outlast the competition.
+      </p>
+    </header>
+
+    <main>
+      <Card title="The Hand-Coded Advantage">
+        <strong>Clean Code is a Competitive Edge.</strong>
+        <p>
+          Mainstream agencies rely on "page builders" that choke your site with
+          thousands of lines of junk code. We hand-code every pixel. The result:
+          sub-second load times, flawless security, and a site that feels as
+          lightweight as it is powerful.
+        </p>
+      </Card>
+
+      <Card title="The WordPress Alternative">
+        <strong>Ditch the Frameworks, Keep the Power.</strong>
+        <p>
+          If you need a CMS, don’t settle for a bloated theme. We build
+          WordPress from the ground up—zero heavy frameworks, zero clunky
+          plugins. Just lean PHP and CSS tailored strictly to your business
+          requirements.
+        </p>
+      </Card>
+
+      <Card title="The Technical Edge">
+        <strong>Astro & Tailwind Architecture.</strong>
+        <p>
+          We bridge the gap between static speed and dynamic scalability. By
+          leveraging <strong>Astro</strong> for instant delivery and <strong
+            >Tailwind CSS</strong
+          > for precision responsiveness, your site is optimized for the modern web
+          on every device.
+        </p>
+      </Card>
+
+      <Card title="The Hybrid Setup">
+        <strong>10x Speed. 100% Familiarity.</strong>
+        <p>
+          Keep the WordPress editor your team loves; lose the performance
+          bottlenecks. Our "Headless" setups decouple your content from the
+          front-end, delivering a UI that is 10x faster and exponentially more
+          secure than standard themes.
+        </p>
+      </Card>
+
+      <Card title="Maintenance & Security">
+        <strong>The "Key Update" Protocol.</strong>
+        <p>
+          The web never stops moving. Our monthly "Key Updates" ensure your
+          architecture stays patched, prioritized, and ahead of search engine
+          algorithm shifts. We don't just maintain; we optimize.
+        </p>
+      </Card>
+    </main>
+
+    <footer>
+      <p>
+        Precision Engineering. No Templates. <strong
+          >Cross Key Studios Standard.</strong
+        >
+      </p>
+    </footer>
+  </section>
+
   Focus: Quality over quantity and the "No-Template" promise.
   <br />
   Headline: What We Build.
@@ -30,3 +102,49 @@ import Layout from "../layouts/Layout.astro";
   Maintenance & Security: Monthly "Key Updates" to ensure your site stays patched,
   fast, and ahead of search engine algorithm changes.
 </Layout>
+
+<style>
+  h1,
+  h2 {
+    text-align: center;
+  }
+  section {
+    padding: 4rem 2rem;
+    line-height: 1.6;
+    color: #f4f4f4; /* Assuming a dark theme for the neon logo */
+  }
+
+  header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+
+  article h2 {
+    font-size: 1.5rem;
+    color: #00d4ff; /* Your Logo Blue */
+    margin-bottom: 0.5rem;
+  }
+
+  article strong {
+    color: #fff;
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    margin-top: 5rem;
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+    text-align: center;
+  }
+</style>

@@ -17,7 +17,7 @@ const { title } = Astro.props;
   div {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 229, 255, 0.1); /* Subtle Cyan Border */
-    padding: 2.5rem;
+    padding: var(--space-m);
     border-radius: 4px; /* Sharp, professional corners */
     transition: all 0.3s ease;
     position: relative;
@@ -58,5 +58,6 @@ const { title } = Astro.props;
     color: #8e9aaf; /* Slate Gray */
     line-height: 1.6;
     font-size: 1rem;
+    margin-block: var(--space-xl);
   }
 </style>

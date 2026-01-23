@@ -3,14 +3,24 @@ import Logo from "../components/Logo.astro";
 import Nav from "../components/Nav.astro";
 ---
 
-<div>
-    <Logo alt="Cross Key Studios logo" height=8 />
-    <nav><Nav /></nav>
-</div>
+<header>
+  <Logo alt="Cross Key Studios logo" height="5" />
+  <Nav />
+</header>
 
 <style>
-  div {
+  header {
+    background: black;
     display: grid;
     grid-template: "logo nav";
+    gap: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 1rem -0.5rem var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.9;
   }
 </style>

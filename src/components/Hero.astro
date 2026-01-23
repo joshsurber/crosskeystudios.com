@@ -29,22 +29,30 @@ import Logo from "../components/Logo.astro";
     background-size: cover;
     color: white;
     border-bottom: 1px solid black;
-    box-shadow: 0 0 1rem var(--color-shadow);
+    box-shadow: 0 0 1rem -0.5rem var(--color-primary);
     inset: 0 0 auto;
     padding: var(--space-2xl);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: var(--space-xl);
   }
   .logo {
-    /* transform: rotatex(30deg) rotatey(0deg) rotatez(5deg); */
-    /* transform: rotate3d(1, 1, 1, 10deg); */
-    /* transform: skew(-10deg, 10deg); */
     perspective: 1rem;
+    transform: perspective(30rem) rotate3d(1, -1, 0, 30deg);
+    /* animation: straightenLogo linear; */
+    animation-timeline: scroll();
+  }
 
-    /* 2. rotateX tilts it 'back' (negative value pulls top away) */
-    /* 3. rotateY tilts it 'right' (positive value pushes left side forward) */
-    /* transform: rotateX(20deg) rotateY(20deg); */
-    transform: perspective(1000px) rotate3d(1, -1, 0, 30deg);
+  @keyframes straightenLogo {
+    /* At the very top of the page */
+    from {
+      transform: perspective(30rem) rotate3d(1, -1, 0, 30deg);
+    }
+    /* By the time you reach the end of the scroll container (or a set distance) */
+    to {
+      transform: perspective(0) rotate3d(1, 1, 1, 0deg);
+    }
   }
   h1,
   h2,
@@ -61,5 +69,7 @@ import Logo from "../components/Logo.astro";
     box-shadow: 0 0 1rem var(--color-shadow);
     padding: 3rem;
     border-radius: 1rem;
+
+    aspect-ratio: 644/496;
   }
 </style>

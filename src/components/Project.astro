@@ -1,5 +1,17 @@
 ---
-
+const { title, href, image } = Astro.props;
+let src = `url(${image})`;
 ---
 
-<div><slot /></div>
+<div>
+  <a href={href}>{title}</a>
+  <slot />
+</div>
+
+<style define:vars={{ src }}>
+  div {
+    background: var(--src);
+    background-size: cover;
+    /* aspect-ratio: 5/4; */
+  }
+</style>

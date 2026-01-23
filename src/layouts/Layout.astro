@@ -24,10 +24,10 @@ const { title = "Cross Key Studios", isHome = false } = Astro.props;
     <!-- <link rel="stylesheet" href="/style.css" /> -->
   </head>
 
-  <body>
+  <body class={isHome ? "home" : null}>
     <!-- <header>{isHome ? <Hero /> : <Header />}</header> -->
     <Header />
-    <main><Main><slot /></Main></main>
-    <footer><Footer /></footer>
+    <Main><slot /></Main>
+    <Footer />
   </body>
 </html>

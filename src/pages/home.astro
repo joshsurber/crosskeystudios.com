@@ -2,57 +2,110 @@
 import Layout from "../layouts/Layout.astro";
 import ServiceGrid from "../components/ServiceGrid.astro";
 import Section from "../components/Section.astro";
-import Cards from "../components/Cards.astro";
+import Grid from "../components/Grid.astro";
 import Card from "../components/Card.astro";
 import Project from "../components/Project.astro";
 import Testimonial from "../components/Testimonial.astro";
 import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Cross Key Studios" isHome={true}>
   <Hero title="Digital Craft from the Ground Up.">
-    Cross Key Studios: A San Antonio-based web studio specializing in bespoke,
-    hand-coded digital experiences.
+    <p>
+      Cross Key Studios is a San Antonio-based web studio specializing in
+      bespoke, hand-coded digital experiences.
+    </p>
+    <p>
+      We believe the best work isn't found in a template. Inspired by the
+      intersection of precision and creativity, we build websites that act as a
+      permanent, high-performance home for your brand online.
+    </p>
+    <p>Let us know how we can help your business grow!</p>
+    <p class="center"><Button href="/contact">Contact us</Button></p>
   </Hero>
 
-  <p>
-    The "Studio" Story: We believe the best work isn't found in a template.
-    Inspired by the intersection of precision and creativity, we build websites
-    that act as a permanent, high-performance home for your brand online.
-  </p>
+  <Grid title="What We Do" id="services" gap="2rem">
+    <!-- Combined Astro & Hand-Coding -->
+    <Card title="Performance Architecture">
+      <strong>Sub-Second Velocity by Design.</strong>
+      <p>
+        We leverage <strong>Astro</strong> and hand-coded CSS to eliminate the framework
+        bloat that chokes modern sites. By writing every line of code ourselves, we
+        deliver maximum speed and a hardened security profile.
+      </p>
+    </Card>
 
-  <Cards title="What we do">
-    <Card title="Custom Web Apps">
-      Hand-coded logic tailored specifically to your business workflow.
+    <!-- Combined WP & Block Themes -->
+    <Card title="Custom WordPress">
+      <strong>Full Control. Zero Weight.</strong>
+      <p>
+        For teams that need a robust CMS, we build WordPress themes from scratch
+        using modern <strong>Block Themes</strong>. No heavy frameworks—just
+        clean, purposeful PHP tailored strictly to your business workflow.
+      </p>
     </Card>
-    <Card title="E-commerce">
-      Bespoke storefronts designed for smooth, high-conversion transactions.
-    </Card>
-    <Card title="UI UX Design">
-      Clean, high-contrast interfaces with our signature neon glow.
-    </Card>
-    <Card title="Performance">
-      Ultra-fast load times achieved through lightweight, purposeful code.
-    </Card>
-    <Card title="Brand Identity">
-      Developing a visual language that matches your studio's ambition.
-    </Card>
-    <Card title="API Logic">
-      Connecting your custom website to the digital tools you use daily.
-    </Card>
-  </Cards>
 
-  <Section title="Portfolio">
-    <Project title="CR Vegan Eats" href="http://crveganeats.com" image="" />
-    <Project title="http://tntcakery.con" href="TNT Cakery" image="" />
+    <!-- Specific Storefront Focus -->
+    <Card title="Bespoke WooCommerce">
+      <strong>Lean E-commerce Logic.</strong>
+      <p>
+        We leverage WooCommerce without the "plugin fatigue." By using a
+        bare-minimum footprint, we build high-conversion storefronts that stay
+        fast, secure, and easy for your team to manage.
+      </p>
+    </Card>
+
+    <!-- The Advanced Bridge -->
+    <Card title="Hybrid Headless Setups">
+      <strong>10x Speed. 100% Familiarity.</strong>
+      <p>
+        The best of both worlds: keep the WordPress dashboard your team knows,
+        integrated with an Astro front-end. It’s the ultimate setup for speed,
+        scalability, and airtight security.
+      </p>
+    </Card>
+
+    <!-- Combined Open Source & Savings -->
+    <Card title="Future-Proof Economics">
+      <strong>Open Standards. Long-Term Value.</strong>
+      <p>
+        We use industry-standard, open-source tools to ensure you’re never
+        locked in. Our efficient builds reduce ongoing maintenance and server
+        costs, keeping you online as cheaply and reliably as possible.
+      </p>
+    </Card>
+
+    <!-- Recurring Service -->
+    <Card title="The Key Update Protocol">
+      <strong>Maintenance as Optimization.</strong>
+      <p>
+        The web never stops moving. Our monthly protocol keeps your custom
+        architecture patched and optimized for algorithm shifts. We don't just
+        maintain; we keep your site ahead of the curve.
+      </p>
+    </Card>
+  </Grid>
+
+  <Grid title="Portfolio">
+    <Project
+      title="CR Vegan Eats"
+      href="http://crveganeats.com"
+      image="/crveganeats.png"
+    />
+    <Project
+      title="TNT Cakery"
+      href="http://tntcakery.con"
+      image="/tntcakery.png"
+    />
     <Project
       title="Ignite God's Lite"
       href="http://ignite-gods-lite.com"
-      image=""
+      image="ignite-gods-lite.png"
     />
-  </Section>
+  </Grid>
 
-  <Section title="Testimonials">
+  <Grid title="Testimonials">
     <Testimonial name="Tina O." title="Baker">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam est
       similique debitis omnis magnam nobis consequuntur qui voluptas odio
@@ -68,12 +121,12 @@ import Hero from "../components/Hero.astro";
       cumque dolore expedita accusamus nobis consectetur, esse laboriosam
       numquam omnis!
     </Testimonial>
-  </Section>
+  </Grid>
 </Layout>
 
 <style>
   p {
-    margin-block: var(--space-3xl);
+    /* margin-block: var(--space-xl); */
   }
   > section {
     max-width: 65ch;

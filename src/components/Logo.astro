@@ -3,56 +3,45 @@ import { getImage, Image } from "astro:assets";
 import logo_black from "../assets/logo_black.png";
 import logo_blue from "../assets/logo_blue.png";
 import logo_white from "../assets/logo_white.png";
-
 const black = await getImage({ src: logo_black, format: "webp" });
 const white = await getImage({ src: logo_white, format: "webp" });
-interface Props {
-    width?: number;
-    height?: number;
-    turnOn?: boolean;
-}
+
 let { width = 644, height = 496, turnOn = false } = Astro.props;
+const animation = turnOn ? "neonStartupDelayed 5s ease-in-out forwards" : "";
+let icon_black = `url(${black.src})`;
+let icon_white = `url(${white.src})`;
+const logo_max_width = `${width}rem`;
+const logo_max_height = `${height}rem`;
 ---
 
-<div
-  style={`
-     --icon-black: url(${black.src});
-     --icon-white: url(${white.src});
-     --logo-max-width: ${width}rem;
-     --logo-max-height: ${height}rem;
-     `}
->
+<div>
   <!-- width:${logo_blue.width}px; -->
   <!-- height:${logo_blue.height}px; -->
   <!-- --icon-blue: url(${blue.src}); -->
-  <a href='/'>
-      <span>Cross Key Studios</span>
-      <Image src={logo_blue} alt="" />
+  <a href="/home">
+    <span>Cross Key Studios</span>
+    <Image src={logo_blue} alt="" />
   </a>
 </div>
 
-{turnOn && (
-<style>
-    div {
-        --filter: grayscale(100%) brightness(0.4);
-        --animation: neon-on 3s ease-in-out forwards;
-        --animation: neonStartupDelayed 3s ease-in-out forwards;
-    }
-</style>
-)}
-
-<style>
+<style
+  define:vars={{
+    animation,
+    "logo-max-width": logo_max_width,
+    "logo-max-height": logo_max_height,
+    "icon-black": icon_black,
+    "icon-white": icon_white,
+  }}
+>
   div {
-    /* Pass width and/or height in rems */
     aspect-ratio: 644/496;
-    max-width: var( --logo-max-width );
-    max-height:var(  --logo-max-height );
+    max-width: var(--logo-max-width);
+    max-height: var(--logo-max-height);
 
     background-image: var(--icon-white);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    filter: var(--filter);
     animation: var(--animation);
   }
   span {
@@ -66,60 +55,57 @@ let { width = 644, height = 496, turnOn = false } = Astro.props;
     }
   }
 
-  @keyframes neon-on {
+  @keyframes neonStartupDelayed {
     0% {
-      filter: grayscale(100%) brightness(0.4);
+      opacity: 0;
+      scale: 0.98;
     }
-    7% {
-      filter: grayscale(50%) brightness(1.4) drop-shadow(0 0 8px #00d4ff);
+    19% {
+      opacity: 0;
+      scale: 0.98;
     }
-    10% {
-      filter: grayscale(100%) brightness(0.4);
+
+    20% {
+      opacity: 1;
+      scale: 1;
     }
-    15% {
-      filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 5px #00d4ff);
+    22% {
+      opacity: 0;
+      scale: 0.98;
     }
-    20%,
-    40% {
-      filter: grayscale(80%) brightness(0.5);
+    24% {
+      opacity: 1;
+      scale: 1;
     }
-    /* Final State */
-    30%,
+    25% {
+      opacity: 0;
+      scale: 0.98;
+    }
+
+    30% {
+      opacity: 1;
+      scale: 1;
+    }
+    33% {
+      opacity: 0.2;
+      scale: 1;
+    }
+    38% {
+      opacity: 1;
+      scale: 1;
+    }
+
     45% {
-      filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 5px #00d4ff);
+      opacity: 0.9;
     }
+    50%,
     100% {
-      filter: grayscale(0%) brightness(1);
+      opacity: 1;
+      filter: none;
+      scale: 1;
     }
   }
-
-@keyframes neonStartupDelayed {
-  /* Completely Off */
-  0%   { opacity: 0; scale:0.98}
-  19%  { opacity: 0; scale:0.98}
-
-  /* The Initial Sparks */
-  20%  { opacity: 1; scale:1}
-  22%  { opacity: 0; scale:0.98}
-  24%  { opacity: 1; scale:1}
-  25%  { opacity: 0; scale:0.98}
-  
-  /* The Struggle and Catch */
-  30%  { opacity: 1; scale:1}
-  33%  { opacity: 0.2; scale:1}
-  38%  { opacity: 1; scale:1}
-  
-  /* Stabilization and Final Glow */
-  45%  { opacity: 0.9; }
-  50%  ,
-  100% { opacity: 1; filter:none;scale:1}
-}
   @keyframes neon-hover {
-    /* 0% { */
-    /*   filter: brightness(0.3) drop-shadow(0 0 0px transparent); */
-    /* } */
-
-    /* The Flicker moments - adding multiple shadows for a "bloom" */
     20%,
     24%,
     55% {
@@ -127,12 +113,10 @@ let { width = 644, height = 496, turnOn = false } = Astro.props;
         drop-shadow(0 0 15px #00d4ff);
     }
 
-    /* The "Off" moments during flicker */
     22% {
       filter: grayscale(100%) brightness(0.3) drop-shadow(0 0 0px transparent);
     }
 
-    /* Final "On" state - a subtle, steady glow */
     0%,
     19%,
     21%,
