@@ -1,9 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import Portfolio from "../components/Portfolio.astro";
+import Section from "../components/Section.astro";
 ---
 
 <Layout>
+  <!-- <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script> -->
+
+  <Section class="contact-studio">
+    <h1>Reach Out to the Studio</h1>
+    <p>
+      I’m always open to discussing new projects, whether it’s a full site build
+      or a custom plugin for an existing WordPress setup.
+    </p>
+    <p>
+      <small
+        >Based in <strong>San Antonio</strong>, operating on a global digital
+        frequency.</small
+      >
+    </p>
+
+    <form action="https://submit-form.com/JvwsNErL">
+      <h3>Start the Transmission</h3>
+
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="about" placeholder="Tell me about your project"
+      ></textarea>
+
+      <label for="bottleneck"
+        >What is the biggest bottleneck in your current digital presence?</label
+      >
+      <textarea name="bottleneck" required></textarea>
+
+      <label for="success"
+        >What does a 'successful' launch look like to you?</label
+      >
+      <textarea name="success" required></textarea>
+
+      <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
+
+      <button type="submit" id="submitBtn">Send Message</button>
+    </form>
+  </Section>
   Focus: Direct and personal.
   <br />
   Headline: Reach Out to the Studio.
