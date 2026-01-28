@@ -6,3 +6,10 @@ const { title } = Astro.props;
   <h2>{title}</h2>
   <slot />
 </section>
+
+<style>
+  section {
+    max-width: 75ch;
+    margin-inline: auto;
+  }
+</style>
