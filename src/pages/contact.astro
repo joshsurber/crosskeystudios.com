@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import Label from "../components/Label.astro";
 ---
 
 <Layout>
@@ -22,45 +23,32 @@ import Section from "../components/Section.astro";
     <form action="https://submit-form.com/JvwsNErL">
       <h3>Start the Transmission</h3>
 
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <textarea name="about" placeholder="Tell me about your project"
-      ></textarea>
+      <Label text="Name">
+        <input type="text" name="name" placeholder="Name" required />
+      </Label>
 
-      <label for="bottleneck"
-        >What is the biggest bottleneck in your current digital presence?</label
-      >
-      <textarea name="bottleneck" required></textarea>
+      <Label text="Email address">
+        <input type="email" name="email" placeholder="Email Address" required />
+      </Label>
 
-      <label for="success"
-        >What does a 'successful' launch look like to you?</label
+      <Label text="Tell me about your project">
+        <textarea name="about" placeholder="Tell me about your project"
+        ></textarea>
+      </Label>
+
+      <Label
+        text="What is the biggest bottleneck in your current digital presence?"
       >
-      <textarea name="success" required></textarea>
+        <textarea name="bottleneck" required></textarea>
+      </Label>
+
+      <Label text="What does a 'successful' launch look like to you?">
+        <textarea name="success" required></textarea>
+      </Label>
 
       <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
 
       <button type="submit" id="submitBtn">Send Message</button>
     </form>
   </Section>
-  Focus: Direct and personal.
-  <br />
-  Headline: Reach Out to the Studio.
-  <br />
-  Message: I’m always open to discussing new projects, whether it’s a full site build
-  or a custom plugin for an existing WordPress setup.
-  <br />
-  The Form: Simple Name, Email, and "Tell me about your project" fields.
-  <br />
-  Focus: Lead qualification.
-  <br />
-  Headline: Start the Transmission.
-  <br />
-  Form Logic: Instead of just a "Message" box, ask:
-  <br />
-  "What is the biggest bottleneck in your current digital presence?"
-  <br />
-  "What does a 'successful' launch look like to you?"
-  <br />
-  Location: Mention you are a local San Antonio studio but operate on a global digital
-  frequency.
 </Layout>
