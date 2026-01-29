@@ -1,0 +1,17 @@
+---
+const { text } = Astro.props;
+---
+
+<label>
+  <span>{text}</span>
+  <slot />
+</label>
+
+<style>
+  label,
+  span {
+    display: block;
+  }
+  label > span:first-child() {
+  }
+</style>
