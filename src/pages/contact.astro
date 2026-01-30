@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import Label from "../components/Label.astro";
+import Input from "../components/Input.astro";
 ---
 
 <Layout>
@@ -23,28 +24,36 @@ import Label from "../components/Label.astro";
     <form action="https://submit-form.com/JvwsNErL">
       <h3>Start the Transmission</h3>
 
-      <Label text="Name">
-        <input type="text" name="name" placeholder="Name" required />
-      </Label>
+      <Input label="Name" type="text" name="name" placeholder="Name" required />
 
-      <Label text="Email address">
-        <input type="email" name="email" placeholder="Email Address" required />
-      </Label>
+      <Input
+        label="Email address"
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required
+      />
 
-      <Label text="Tell me about your project">
-        <textarea name="about" placeholder="Tell me about your project"
-        ></textarea>
-      </Label>
+      <Input
+        label="Tell me about your project"
+        type="textarea"
+        name="about"
+        placeholder="Tell me about your project"
+      />
 
-      <Label
-        text="What is the biggest bottleneck in your current digital presence?"
-      >
-        <textarea name="bottleneck" required></textarea>
-      </Label>
+      <Input
+        label="What is the biggest bottleneck in your current digital presence?"
+        type="textarea"
+        name="bottleneck"
+        required
+      />
 
-      <Label text="What does a 'successful' launch look like to you?">
-        <textarea name="success" required></textarea>
-      </Label>
+      <Input
+        label='What does a "successful" launch look like to you?'
+        type="textarea"
+        name="success"
+        required
+      />
 
       <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
 
