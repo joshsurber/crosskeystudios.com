@@ -43,6 +43,17 @@ import Logo from "../components/Logo.astro";
     /* animation: straightenLogo linear; */
     animation-timeline: scroll();
   }
+  @media (width<40em) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .content {
+      grid-row: 2;
+    }
+    .logo {
+      display: none;
+    }
+  }
 
   @keyframes straightenLogo {
     /* At the very top of the page */

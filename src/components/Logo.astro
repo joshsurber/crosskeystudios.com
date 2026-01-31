@@ -43,6 +43,10 @@ const logo_max_height = `${height}rem`;
     background-repeat: no-repeat;
     background-size: contain;
     animation: var(--animation);
+    @media (width < 40em) {
+      width: min(75%, 20rem);
+      max-height: none;
+    }
   }
   span {
     display: none;

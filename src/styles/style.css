@@ -118,6 +118,10 @@ p {
 body:has(.hero) header {
   opacity: 0;
   animation: showHeader 3s ease 2s forwards;
+  @media (width<40em) {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 @keyframes showHeader {
