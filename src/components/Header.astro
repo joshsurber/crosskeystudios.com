@@ -22,5 +22,10 @@ import Nav from "../components/Nav.astro";
     align-items: center;
     justify-content: space-between;
     opacity: 0.9;
+    @media (width < 40em) {
+      grid-template: "logo" "nav";
+      justify-content: center;
+      place-items: center;
+    }
   }
 </style>
