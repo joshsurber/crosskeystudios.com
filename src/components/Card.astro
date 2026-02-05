@@ -1,13 +1,14 @@
 ---
-const { title } = Astro.props;
+const { title, subtitle, gap } = Astro.props;
 ---
 
 <div>
   <h3>{title}</h3>
+  {subtitle && <strong>{subtitle}</strong>}
   <slot />
 </div>
 
-<style>
+<style define:vars={{ gap }}>
   @property --angle {
     syntax: "<angle>";
     initial-value: 0turn;
@@ -15,15 +16,16 @@ const { title } = Astro.props;
   }
   /* Individual Card Styling */
   div {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(0, 229, 255, 0.1); /* Subtle Cyan Border */
-    padding: var(--space-m);
-    border-radius: 4px; /* Sharp, professional corners */
-    transition: all 0.3s ease;
     position: relative;
+    padding: var(--gap);
     overflow: hidden;
+    border: 1px solid rgba(0, 229, 255, 0.1); /* Subtle Cyan Border */
+    border-radius: 4px; /* Sharp, professional corners */
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
 
     &:hover {
+      transform: translateY(-5px);
       border-color: #00e5ff; /* Electric Cyan */
       border-color: transparent;
       background:
@@ -36,9 +38,8 @@ const { title } = Astro.props;
             var(--color-primary)
           )
           border-box;
-      animation: rotate 3s linear infinite;
-      transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+      animation: rotate 3s linear infinite;
     }
   }
   @keyframes rotate {
@@ -48,16 +49,16 @@ const { title } = Astro.props;
   }
 
   h3 {
-    color: #ffffff;
-    font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: #ffffff;
     font-weight: 600;
+    font-size: 1.5rem;
   }
 
   p {
-    color: #8e9aaf; /* Slate Gray */
-    line-height: 1.6;
-    font-size: 1rem;
     margin-block: var(--space-xl);
+    color: #8e9aaf; /* Slate Gray */
+    font-size: 1rem;
+    line-height: 1.6;
   }
 </style>
