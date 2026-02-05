@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Pricepoint from "../components/Pricepoint.astro";
+import Section from "../components/Section.astro";
 ---
 
-<Layout title="Pricing">
-  <h1># Pricing</h1>
-
-  <h2>## Typical Investment</h2>
-
+<Layout title="Typical Investment">
   <p>
     We don’t sell cookie‑cutter websites. We design and build digital
     foundations that are structured, performant, and built to grow with your
@@ -18,85 +17,107 @@ import Layout from "../layouts/Layout.astro";
     the ranges below.
   </p>
 
-  ---
+  <div class="grid">
+    <Pricepoint
+      title="Foundation Site"
+      startingAt="2,000"
+      intro="Best for small businesses, nonprofits, and solo operators who need a professional presence done right."
+      outro="This is not a template or page builder flip. It’s a clean, well‑structured site that gives you a solid web foundation."
+    >
+      <ul>
+        <li>1–3 page custom website</li>
+        <li>Content‑first layout and information structure</li>
+        <li>Mobile‑first, performance‑focused build</li>
+        <li>Contact form + basic analytics</li>
+        <li>SEO and accessibility best practices</li>
+        <li>Launch support and handoff</li>
+      </ul>
+    </Pricepoint>
 
-  <table>
-    <tr>
-      <td
-        ><h3>## Foundation Site</h3>
+    <Pricepoint
+      title="Growth Site"
+      startingAt="4,500"
+      intro="Our most common engagement. Built for established organizations ready to use their website as a business tool, not just a brochure."
+      outro="Designed to scale, evolve, and support future marketing and content needs."
+    >
+      <ul>
+        <li>5–8 page custom website</li>
+        <li>Content structure and messaging guidance</li>
+        <li>Conversion‑focused layouts</li>
+        <li>CMS setup (WordPress, headless, or static)</li>
+        <li>SEO‑ready architecture</li>
+        <li>Performance optimization</li>
+        <li>Post‑launch walkthrough and support</li>
+      </ul>
+    </Pricepoint>
 
-        **Starting at $2,000** Best for small businesses, nonprofits, and solo
-        operators who need a professional presence done right. **What’s
-        included**
+    <Pricepoint
+      title="Custom & Advanced Builds"
+      startingAt="8,000"
+      intro="For complex projects with specific technical or business requirements."
+      outro="Pricing is determined by scope, goals, and technical complexity."
+      listhead="Examples include"
+    >
+      <ul>
+        <li>Ecommerce and payment systems</li>
+        <li>Membership or gated content</li>
+        <li>API and third‑party integrations</li>
+        <li>Headless or custom frontends</li>
+        <li>Accessibility or performance‑critical builds</li>
+      </ul>
+    </Pricepoint>
 
-        <ul>
-          <li>* 1–3 page custom website</li>
-          <li>* Content‑first layout and information structure</li>
-          <li>* Mobile‑first, performance‑focused build</li>
-          <li>* Contact form + basic analytics</li>
-          <li>* SEO and accessibility best practices</li>
-          <li>* Launch support and handoff</li>
-        </ul>
-        This is not a template or page builder flip. It’s a clean, well‑structured
-        site that gives you a solid web foundation.</td
-      >
-
-      ---
-
-      <td
-        ><h3>## Growth Site</h3>
-
-        **Starting at $4,500** Our most common engagement. Built for established
-        organizations ready to use their website as a business tool, not just a
-        brochure. **What’s included**
-
-        <ul>
-          <li>* 5–8 page custom website</li>
-          <li>* Content structure and messaging guidance</li>
-          <li>* Conversion‑focused layouts</li>
-          <li>* CMS setup (WordPress, headless, or static)</li>
-          <li>* SEO‑ready architecture</li>
-          <li>* Performance optimization</li>
-          <li>* Post‑launch walkthrough and support</li>
-        </ul>
-        Designed to scale, evolve, and support future marketing and content needs.</td
-      >
-
-      ---
-
-      <td
-        ><h3>## Custom & Advanced Builds</h3>
-
-        **Starting at $8,000+** For complex projects with specific technical or
-        business requirements. **Examples include**
-
-        <ul>
-          <li>* Ecommerce and payment systems</li>
-          <li>* Membership or gated content</li>
-          <li>* API and third‑party integrations</li>
-          <li>* Headless or custom frontends</li>
-          <li>* Accessibility or performance‑critical builds</li>
-        </ul>
-        Pricing is determined by scope, goals, and technical complexity.</td
-      >
-
-      ---
-
-      <td
-        ><h3>## Ongoing Support</h3>
-
-        Most clients choose to continue working with us after launch. **Care &
-        Support Plans**
-
-        <li>* **$100/mo** – Core updates, monitoring, backups</li>
-        <li>* **$350/mo** – Active support, improvements, priority fixes</li>
-        <ul>
-          Support plans are optional but recommended for long‑term site health.
-        </ul></td
-      >
-    </tr>
-  </table>
-  --- ## Not Sure What You Need? If you’re unsure where your project fits, that’s
-  normal. Book a short discovery call and we’ll help define the right approach — no
-  pressure, no sales scripts. **Projects typically book 2–4 weeks in advance.**
+    <Pricepoint
+      title="Ongoing Support"
+      startingAt="100/month"
+      intro="Most clients choose to continue working with us after launch."
+      outro="Support plans are optional but recommended for long‑term site health."
+      listhead="Available plans"
+    >
+      <p><strong>Basic</strong></p>
+      <ul>
+        <li>Core updates</li>
+        <li>Monitoring</li>
+        <li>Backups</li>
+        <li><strong>$100/mo</strong> or <strong>$1,000/yr</strong></li>
+      </ul>
+      <p><strong>Premier</strong></p>
+      <ul>
+        <li>Active support</li>
+        <li>Improvements</li>
+        <li>Priority fixes</li>
+        <li><strong>$350/mo</strong> or <strong>$3,500/yr</strong></li>
+      </ul>
+    </Pricepoint>
+  </div>
+  <Section title="Not Sure What You Need?">
+    <p>
+      If you’re unsure where your project fits, that’s normal. Book a short
+      discovery call and we’ll help define the right approach — no pressure, no
+      sales scripts.
+    </p>
+    <p><strong>Projects typically book 2–4 weeks in advance.</strong></p>
+  </Section>
 </Layout>
+
+<style>
+  .grid {
+    --gap: var(--space-xs);
+    display: grid;
+    position: relative;
+    left: 0;
+    grid-template-rows: repeat(auto, 6);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    width: min(100% - 2rem, 80rem);
+    margin-inline: auto;
+    gap: var(--gap);
+    > * {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 6;
+    }
+    > :last-child {
+      /* margin-inline-start: var(--gap); */
+    }
+  }
+</style>
