@@ -13,14 +13,14 @@ const { title, id, gap } = Astro.props;
 <style define:vars={{ gap }}>
   section {
     padding: 4rem 5%;
+    max-width: 80rem;
+    margin-inline: auto;
   }
 
   div {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-
     gap: var(--gap, 1rem);
-    max-width: 80rem;
     margin: 0 auto;
   }
 </style>
