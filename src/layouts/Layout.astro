@@ -2,7 +2,6 @@
 import "../styles/style.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
 import Main from "../components/Main.astro";
 
 interface Props {
@@ -10,25 +9,31 @@ interface Props {
   isHome?: boolean; // Optional boolean prop
 }
 
-const { title = "Cross Key Studios", isHome = false } = Astro.props;
+const { title, isHome = false } = Astro.props;
+const CKS = "Cross Key Studios";
+const titleTag = title ? `${title} | ${CKS}` : `${CKS}`;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <slot name="head" />
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel="icon" href="/favicon.ico" /> -->
     <link rel="icon" type="image/png" href="favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{titleTag}</title>
     <!-- <link rel="stylesheet" href="/style.css" /> -->
   </head>
 
   <body class={isHome ? "home" : null}>
     <!-- <header>{isHome ? <Hero /> : <Header />}</header> -->
     <Header />
-    <Main><slot /></Main>
+    <Main>
+      {title && <h1>{title}</h1>}
+      <slot />
+    </Main>
     <Footer />
   </body>
 </html>
