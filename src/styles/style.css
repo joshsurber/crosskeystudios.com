@@ -28,6 +28,7 @@
 
   --color-primary: hsl(230 100% 65%);
   --color-secondary: hsl(190 100% 65%);
+  --color-midpoint: hsl(210 100% 65%);
   --color-surface: hsl(227, 25%, 11%);
   --color-text: hsl(217 17% 62%);
   --color-shadow: hsl(215, 18%, 12%);
@@ -45,20 +46,20 @@
   interpolate-size: allow-keywords;
 }
 body {
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  font-family: "Inter", sans-serif;
-  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   /* width: 100%; */
   /* height: 100%; */
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  margin: 0;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
 }
 :any-link {
-  color: var(--color-primary);
   background: var(--gradient-linear);
   background-clip: text;
+  color: var(--color-primary);
   color: transparent;
   text-decoration: none;
   &:hover:not(:has(> img)):not(.active),
@@ -77,18 +78,18 @@ body {
   54%,
   56%,
   100% {
-    opacity: 1;
     filter: brightness(100%) drop-shadow(0 0 5px #00e5ff);
+    opacity: 1;
   }
   20%,
   24%,
   55% {
-    opacity: 0.7;
     filter: brightness(150%) drop-shadow(0 0 15px #00e5ff);
+    opacity: 0.7;
   }
   22% {
-    opacity: 0.4;
     filter: brightness(50%);
+    opacity: 0.4;
   }
 }
 
@@ -98,29 +99,36 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", sans-serif;
-  color: var(--color-primary);
   /* text-shadow: 0 0 0.125em var(--color-primary); */
   background: var(--gradient-linear);
   background-clip: text;
+  color: var(--color-primary);
   color: transparent;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
   text-wrap: balance;
 }
-p {
+p,
+li {
   max-width: 65ch;
   margin-inline: auto;
+  font-size: var(--size-m);
   text-wrap: pretty;
 }
 .center {
   text-align: center;
 }
 
+ul li::marker {
+  /* content: "🗝 "; */
+  color: var(--color-primary);
+}
 body:has(.hero) header {
-  opacity: 0;
   animation: showHeader 3s ease 2s forwards;
+  opacity: 0;
   @media (width<40em) {
-    opacity: 1;
     animation: none;
+    opacity: 1;
   }
 }
 
