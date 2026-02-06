@@ -3,7 +3,6 @@ const { title } = Astro.props;
 
 import { getImage, Image } from "astro:assets";
 import hero_bg from "../assets/hero_bg.png";
-import Nav from "../components/Nav.astro";
 
 const hero = await getImage({ src: hero_bg, format: "webp" });
 
@@ -23,25 +22,30 @@ import Logo from "../components/Logo.astro";
 
 <style>
   .hero {
+    --hero-spacing: var(--space-xl-2xl);
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: stretch;
+    width: 100vw;
+    inset: 0 0 auto 50%;
+    padding: var(--hero-spacing);
+    gap: var(--hero-spacing);
+    transform: translateX(-50%);
+    border-bottom: 1px solid black;
     background:
       conic-gradient(rgb(0 0 0 /0.5)),
       var(--bg-img) center black;
     background-size: cover;
-    color: white;
-    border-bottom: 1px solid black;
     box-shadow: 0 0 1rem -0.5rem var(--color-primary);
-    inset: 0 0 auto;
-    padding: var(--space-2xl);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: var(--space-xl);
+    color: white;
   }
   .logo {
-    perspective: 1rem;
     transform: perspective(30rem) rotate3d(1, -1, 0, 30deg);
     /* animation: straightenLogo linear; */
     animation-timeline: scroll();
+    perspective: 1rem;
   }
   @media (width<40em) {
     .hero {
@@ -74,13 +78,12 @@ import Logo from "../components/Logo.astro";
     color: white;
   }
   .logo {
-    width: 20rem;
-    background: var(--color-surface);
-    border: 1px solid black;
-    box-shadow: 0 0 1rem var(--color-shadow);
-    padding: 3rem;
-    border-radius: 1rem;
-
     aspect-ratio: 644/496;
+    width: 40vw;
+    padding: 3rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background: var(--color-surface);
+    box-shadow: 0 0 1rem var(--color-shadow);
   }
 </style>
