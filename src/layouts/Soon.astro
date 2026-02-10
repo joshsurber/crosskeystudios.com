@@ -1,5 +1,7 @@
 ---
+import "../styles/vars.css";
 import "../styles/style.css";
+import "../styles/grid.css";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -22,13 +24,16 @@ import Footer from "../components/Footer.astro";
 
 <style>
   body {
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+    min-height: 100vh;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
     * {
       margin-inline: auto;
       text-align: center;
     }
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: 1fr 3rem;
   }
   main {
     place-content: center;
