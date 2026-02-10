@@ -14,19 +14,18 @@ const { title, subtitle, gap } = Astro.props;
     initial-value: 0turn;
     inherits: true;
   }
-  /* Individual Card Styling */
   div {
     position: relative;
     padding: var(--gap);
     overflow: hidden;
-    border: 1px solid rgba(0, 229, 255, 0.1); /* Subtle Cyan Border */
-    border-radius: 4px; /* Sharp, professional corners */
+    border: 1px solid hsl(from var(--color-midpoint) h s l / 0.1);
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.03);
     transition: all 0.3s ease;
 
     &:hover {
       transform: translateY(-5px);
-      border-color: #00e5ff; /* Electric Cyan */
+      /* border-color: #00e5ff;  */
       border-color: transparent;
       background:
         conic-gradient(black 0 0) padding-box,
@@ -39,7 +38,7 @@ const { title, subtitle, gap } = Astro.props;
           )
           border-box;
       box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
-      animation: rotate 3s linear infinite;
+      animation: rotate 2s linear infinite;
     }
   }
   @keyframes rotate {

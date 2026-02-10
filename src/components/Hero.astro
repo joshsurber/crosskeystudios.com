@@ -9,8 +9,8 @@ const hero = await getImage({ src: hero_bg, format: "webp" });
 import Logo from "../components/Logo.astro";
 ---
 
-<div class="hero" style={`--bg-img: url(${hero.src});`}>
-  <div class="content">
+<div class="hero full" style={`--bg-img: url(${hero.src});`}>
+  <div>
     <h1>{title}</h1>
     <slot />
   </div>
@@ -25,17 +25,19 @@ import Logo from "../components/Logo.astro";
     color: white;
   }
   .hero {
+    grid-column: wide;
     --hero-spacing: var(--space-xl-2xl);
     display: grid;
-    position: relative;
+    /* position: relative; */
     grid-template-columns: repeat(2, 1fr);
+    grid-column: full;
     align-items: center;
     justify-content: stretch;
-    width: 100vw;
-    inset: 0 0 auto 50%;
+    /* width: 100vw; */
+    /* inset: 0 0 auto 50%; */
     padding: var(--hero-spacing);
     gap: var(--hero-spacing);
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     border-bottom: 1px solid black;
     background:
       conic-gradient(rgb(0 0 0 /0.5)),
@@ -58,10 +60,12 @@ import Logo from "../components/Logo.astro";
   }
   @media (width<65em) {
     .hero {
+      --hero-spacing: var(--space-m);
       grid-template-columns: 1fr;
     }
-    .content {
-      grid-row: 2;
+    div {
+      /* grid-row: 2; */
+      padding: 1rem;
     }
     .logo {
       display: none;

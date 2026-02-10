@@ -1,26 +1,29 @@
 ---
 // import Card from "../components/Card.astro";
-const { title, id, gap } = Astro.props;
+import Section from "../components/Section.astro";
+const { title, ...rest } = Astro.props;
 ---
 
-<section id={id ? id : ""}>
-  {title && <h2>{title}</h2>}
+<Section {...rest}>
+  <!-- {title && <h2>{title}</h2>} -->
   <div>
     <slot />
   </div>
-</section>
+</Section>
 
-<style define:vars={{ gap }}>
+<!-- <style define:vars={{ gap }}> -->
+<style>
   section {
-    padding: 4rem 5%;
+    grid-column: full;
     max-width: 80rem;
     margin-inline: auto;
+    padding: 0 var(--gap);
   }
 
   div {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-    gap: var(--gap, 1rem);
     margin: 0 auto;
+    gap: var(--gap);
   }
 </style>
