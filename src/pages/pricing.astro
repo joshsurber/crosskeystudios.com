@@ -106,8 +106,8 @@ import Section from "../components/Section.astro";
     display: grid;
     position: relative;
     left: 0;
-    grid-template-rows: repeat(auto, 6);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); */
+    grid-column: full;
     width: min(100% - 2rem, 80rem);
     margin-inline: auto;
     gap: var(--gap);
@@ -116,8 +116,14 @@ import Section from "../components/Section.astro";
       grid-template-rows: subgrid;
       grid-row: span 6;
     }
-    > :last-child {
-      /* margin-inline-start: var(--gap); */
+    @media (width>40rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (width>70rem) {
+      grid-template-columns: repeat(4, 1fr);
+      > :last-child {
+        margin-inline-start: var(--gap);
+      }
     }
   }
 </style>
