@@ -1,5 +1,7 @@
 ---
+import "../styles/vars.css";
 import "../styles/style.css";
+import "../styles/grid.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Main from "../components/Main.astro";
@@ -37,3 +39,23 @@ const titleTag = title ? `${title} | ${CKS}` : `${CKS}`;
     <Footer />
   </body>
 </html>
+
+<style>
+  body {
+    display: grid;
+    /* grid-template-rows: auto 1fr auto; */
+    /* grid-template-columns: 1fr; */
+    grid-template:
+      "header" auto
+      "content" 1fr
+      "footer" auto;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
+  }
+  h1 {
+    grid-column: breakout;
+  }
+</style>
