@@ -21,6 +21,9 @@ import Logo from "../components/Logo.astro";
 </div>
 
 <style>
+  h1 {
+    color: white;
+  }
   .hero {
     --hero-spacing: var(--space-xl-2xl);
     display: grid;
@@ -41,13 +44,19 @@ import Logo from "../components/Logo.astro";
     box-shadow: 0 0 1rem -0.5rem var(--color-primary);
     color: white;
   }
+
   .logo {
+    aspect-ratio: 644/496;
+    max-width: 35vw;
+    padding: 3rem;
     transform: perspective(30rem) rotate3d(1, -1, 0, 30deg);
-    /* animation: straightenLogo linear; */
-    animation-timeline: scroll();
+    border: 1px solid black;
+    border-radius: 1rem;
+    background: var(--color-surface);
+    box-shadow: 0 0 1rem var(--color-shadow);
     perspective: 1rem;
   }
-  @media (width<40em) {
+  @media (width<65em) {
     .hero {
       grid-template-columns: 1fr;
     }
@@ -57,33 +66,5 @@ import Logo from "../components/Logo.astro";
     .logo {
       display: none;
     }
-  }
-
-  @keyframes straightenLogo {
-    /* At the very top of the page */
-    from {
-      transform: perspective(30rem) rotate3d(1, -1, 0, 30deg);
-    }
-    /* By the time you reach the end of the scroll container (or a set distance) */
-    to {
-      transform: perspective(0) rotate3d(1, 1, 1, 0deg);
-    }
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: white;
-  }
-  .logo {
-    aspect-ratio: 644/496;
-    width: 40vw;
-    padding: 3rem;
-    border: 1px solid black;
-    border-radius: 1rem;
-    background: var(--color-surface);
-    box-shadow: 0 0 1rem var(--color-shadow);
   }
 </style>
