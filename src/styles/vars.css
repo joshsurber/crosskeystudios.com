@@ -34,6 +34,7 @@
   --color-surface: hsl(227, 25%, 11%);
   --color-text: hsl(217 17% 62%);
   --color-shadow: hsl(215, 18%, 12%);
+  --color-border: hsl(210 100% 65%);
   --gradient-linear: linear-gradient(
     in oklab,
     var(--color-primary),

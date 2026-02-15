@@ -10,22 +10,24 @@ import Nav from "../components/Nav.astro";
 
 <style>
   header {
-    background: black;
     display: grid;
-    grid-template: "logo nav";
-    gap: 1rem;
-    padding: 1rem;
-    box-shadow: 0 0 1rem -0.5rem var(--color-primary);
+    z-index: 5;
     position: sticky;
     top: 0;
-    z-index: 5;
+    /* grid-template: "logo nav"; */
+    grid-template-columns: max-content 1fr;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem;
+    gap: var(--gap);
+    background: black;
+    box-shadow: 0 0 1rem -0.5rem var(--color-primary);
     opacity: 0.9;
-    @media (width < 40em) {
-      grid-template: "logo" "nav";
-      justify-content: center;
-      place-items: center;
+    @media (width < 45em) {
+      position: static;
+      /*   grid-template: "logo" "nav"; */
+      /*   place-items: center; */
+      /*   justify-content: center; */
     }
   }
 </style>

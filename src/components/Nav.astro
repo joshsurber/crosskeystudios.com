@@ -10,13 +10,14 @@ const navLinks = [
   { label: "Services", href: "/home#services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Pricing", href: "/pricing" },
-  // { label: "Playbook", href: "/playbook" },
+  { label: "Playbook", href: "/playbook" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 ---
 
 <nav>
+  <input type="checkbox" name="menu-toggle" id="menu-toggle" />
   <ul>
     {
       navLinks.map(({ href, label }) => {
@@ -36,29 +37,62 @@ const navLinks = [
       })
     }
   </ul>
+  <label for="menu-toggle"></label>
 </nav>
 
 <style>
+  nav {
+    container-type: inline-size;
+    text-align: right;
+  }
+  input {
+    display: none;
+  }
+  label {
+    anchor-name: --menu-toggle;
+  }
   ul {
     display: flex;
-    gap: 2rem;
-    list-style-type: none;
     flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--gap);
+    list-style-type: none;
   }
   a {
-    text-decoration: none;
     font-weight: 500;
+    text-decoration: none;
     transition: color 0.3s ease;
-    /* &:hover { */
-    /*   color: #00e5ff; /* Electric Cyan glow */
-    /*   text-shadow: 0 0 8px rgba(0, 229, 255, 0.6); */
-    /* } */
     &.active {
       color: currentColor;
       text-shadow: none;
       &:hover {
         cursor: default;
       }
+    }
+  }
+  @container (width < 45em) {
+    ul {
+      display: none;
+    }
+    input:checked ~ ul {
+      display: flex;
+      position: absolute;
+      position-anchor: --menu-toggle;
+      flex-direction: column;
+      inset: auto var(--gap);
+      inset-block-start: calc(0.5rem + anchor(bottom));
+      padding: var(--gap);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      box-shadow: 0 0 1rem var (--color-shadow);
+    }
+    label::after {
+      content: "☰";
+      font-size: 1.5em;
+    }
+    input:checked ~ label::after {
+      content: "⨉";
+      font-weight: bold;
     }
   }
 </style>

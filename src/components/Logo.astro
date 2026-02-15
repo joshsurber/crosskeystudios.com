@@ -34,19 +34,16 @@ const logo_max_height = `${height}rem`;
   }}
 >
   div {
+    box-sizing: content-box;
     aspect-ratio: 644/496;
     max-width: var(--logo-max-width);
-    max-height: var(--logo-max-height);
+    max-height: min(20rem, var(--logo-max-height));
 
     background-image: var(--icon-white);
     background-position: center;
-    background-repeat: no-repeat;
     background-size: contain;
+    background-repeat: no-repeat;
     animation: var(--animation);
-    @media (width < 40em) {
-      width: min(75%, 20rem);
-      max-height: none;
-    }
   }
   span {
     display: none;
@@ -61,42 +58,42 @@ const logo_max_height = `${height}rem`;
 
   @keyframes neonStartupDelayed {
     0% {
-      opacity: 0;
       scale: 0.98;
+      opacity: 0;
     }
     19% {
-      opacity: 0;
       scale: 0.98;
+      opacity: 0;
     }
 
     20% {
-      opacity: 1;
       scale: 1;
+      opacity: 1;
     }
     22% {
-      opacity: 0;
       scale: 0.98;
+      opacity: 0;
     }
     24% {
-      opacity: 1;
       scale: 1;
+      opacity: 1;
     }
     25% {
-      opacity: 0;
       scale: 0.98;
+      opacity: 0;
     }
 
     30% {
-      opacity: 1;
       scale: 1;
+      opacity: 1;
     }
     33% {
-      opacity: 0.2;
       scale: 1;
+      opacity: 0.2;
     }
     38% {
-      opacity: 1;
       scale: 1;
+      opacity: 1;
     }
 
     45% {
@@ -104,9 +101,9 @@ const logo_max_height = `${height}rem`;
     }
     50%,
     100% {
-      opacity: 1;
-      filter: none;
       scale: 1;
+      filter: none;
+      opacity: 1;
     }
   }
   @keyframes neon-hover {
