@@ -59,6 +59,7 @@ import Button from "../components/Button.astro";
         label="I already have a website and want to improve it"
         type="checkbox"
         id="isOnline"
+        span="2"
       />
 
       <Input
@@ -66,6 +67,7 @@ import Button from "../components/Button.astro";
         type="text"
         name="website"
         placeholder="https://example.com"
+        span="2"
         showIf="isOnline"
       />
 
@@ -87,5 +89,20 @@ import Button from "../components/Button.astro";
 <style is:global>
   label:has(#isOnline:not(:checked)) ~ *[data-show-if="isOnline"] {
     display: none;
+  }
+  form h3,
+  label:has(textarea),
+  button,
+  [data-span="2"] {
+    grid-column: span 2;
+  }
+</style>
+<style>
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    gap: var(--gap);
+    border: none;
   }
 </style>
