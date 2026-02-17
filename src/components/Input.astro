@@ -1,24 +1,77 @@
 ---
-// import Label from "../components/Label.astro";
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"input"> {
   label: string;
+  showIf?: string;
 }
-const { label, type = "text", ...rest } = Astro.props;
+
+const { label, type = "text", showIf, ...rest } = Astro.props;
+
+if (!rest.id) {
+  rest.id = `input-${Math.random().toString(36).substr(2, 9)}`;
+}
+
+const isChoice = type === "checkbox" || type === "radio";
 const Element = type === "textarea" ? "textarea" : "input";
 ---
 
-<label>
-  <span>{label}</span>
-  <Element {...rest} />
-</label>
+{
+  isChoice ? (
+    <label for={rest.id} data-show-if={showIf} class="choice-label">
+      <Element type={type} {...rest} />
+      {label}
+    </label>
+  ) : (
+    <label for={rest.id} data-show-if={showIf}>
+      {label}
+      <Element type={type} data-show-if={showIf} {...rest} />
+    </label>
+  )
+}
 
 <style>
-  label,
-  span {
+  /* Standard Labels */
+  label {
     display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font: inherit;
   }
-  label > span:first-child() {
+
+  /* Checkbox/Radio Labels */
+  .choice-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem; /* Match the bottom margin of other inputs */
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    field-sizing: content;
+  }
+
+  /* Specific sizing for auto-expanding textareas */
+  textarea {
+    min-height: 3rem;
+    resize: vertical; /* fallback for non-supporting browsers */
+  }
+
+  /* Ensure choice inputs don't take 100% width */
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: auto;
+    margin: 0;
   }
 </style>

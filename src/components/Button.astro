@@ -1,21 +1,33 @@
 ---
-const { href } = Astro.props;
+const { href, type = "link", ...rest } = Astro.props;
 ---
 
-<a href={href}>
-  <slot />
-</a>
-
+{
+  type == "link" ? (
+    <a href={href} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} {...rest}>
+      <slot />
+    </button>
+  )
+}
 <style>
-  a {
+  a,
+  button {
     display: inline-block;
     padding: 0.5em 1em;
     border: 1px solid;
-    text-align: center;
-    color: black;
     background: var(--gradient-linear);
+    color: black;
+    font-size: inherit;
+    text-align: center;
     &:hover {
       color: black;
     }
+  }
+  .right {
+    float: right;
   }
 </style>

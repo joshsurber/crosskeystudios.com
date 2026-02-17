@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import Label from "../components/Label.astro";
 import Input from "../components/Input.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Reach Out to the Studio">
@@ -34,16 +35,16 @@ import Input from "../components/Input.astro";
       />
 
       <Input
-        label="Tell me about your project"
+        label="Tell us about your project."
         type="textarea"
         name="about"
         placeholder="Tell me about your project"
       />
 
       <Input
-        label="What is the biggest bottleneck in your current digital presence?"
+        label="What are your primary goals for this project?"
         type="textarea"
-        name="bottleneck"
+        name="goals"
         required
       />
 
@@ -54,9 +55,37 @@ import Input from "../components/Input.astro";
         required
       />
 
-      <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
+      <Input
+        label="I already have a website and want to improve it"
+        type="checkbox"
+        id="isOnline"
+      />
 
-      <button type="submit" id="submitBtn">Send Message</button>
+      <Input
+        label="What is your current website URL?"
+        type="text"
+        name="website"
+        placeholder="https://example.com"
+        showIf="isOnline"
+      />
+
+      <Input
+        label="What is the biggest bottleneck in your current digital presence?"
+        type="textarea"
+        name="bottleneck"
+        showIf="isOnline"
+        required
+      />
+
+      <!-- <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div> -->
+
+      <Button type="submit" id="submitBtn" class="right">Send Message</Button>
     </form>
   </Section>
 </Layout>
+
+<style is:global>
+  label:has(#isOnline:not(:checked)) ~ *[data-show-if="isOnline"] {
+    display: none;
+  }
+</style>

@@ -46,4 +46,5 @@
     var(--color-secondary),
     var(--color-primary)
   );
+  color-scheme: dark light;
 }
