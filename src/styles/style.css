@@ -72,17 +72,3 @@ li {
   /* content: "🗝 "; */
   color: var(--color-primary);
 }
-body:has(.hero) header {
-  animation: showHeader 3s ease 2s forwards;
-  opacity: 0;
-  @media (width<45em) {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-@keyframes showHeader {
-  to {
-    opacity: 0.9;
-  }
-}

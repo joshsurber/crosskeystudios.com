@@ -72,3 +72,20 @@ import Logo from "../components/Logo.astro";
     }
   }
 </style>
+
+<style is:global>
+  body:has(.hero) header {
+    @media (width>45em) {
+      /* animation: none; */
+      /* opacity: 1; */
+      animation: showHeader 3s ease 2s forwards;
+      opacity: 0;
+    }
+  }
+
+  @keyframes showHeader {
+    to {
+      opacity: 0.9;
+    }
+  }
+</style>
