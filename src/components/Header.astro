@@ -12,7 +12,6 @@ import Nav from "../components/Nav.astro";
   header {
     display: grid;
     z-index: 5;
-    position: sticky;
     top: 0;
     /* grid-template: "logo nav"; */
     grid-template-columns: max-content 1fr;
@@ -28,6 +27,9 @@ import Nav from "../components/Nav.astro";
       /*   grid-template: "logo" "nav"; */
       /*   place-items: center; */
       /*   justify-content: center; */
+    }
+    @media (height>40em) {
+      position: sticky;
     }
   }
 </style>
