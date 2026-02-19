@@ -11,20 +11,39 @@ import Button from "../components/Button.astro";
       I’m always open to discussing new projects, whether it’s a full site build
       or a custom plugin for an existing WordPress setup.
     </p>
+
     <p>
-      <small
-        >Based in <strong>San Antonio</strong>, operating on a global digital
-        frequency.</small
-      >
+      Cross Key Studios works best with small teams and solo businesses that
+      value clarity, collaboration, and long-term maintainability. If you’re
+      looking for quick fixes, rushed timelines, or hands-off execution, we may
+      not be the best fit — and that’s okay.
+    </p>
+
+    <p>
+      <small>
+        Based in <strong>San Antonio</strong>, operating on a global digital
+        frequency.
+      </small>
     </p>
 
     <form action="https://submit-form.com/JvwsNErL">
+      <input
+        type="hidden"
+        name="_redirect"
+        value="https://crosskeystudios.com/contact/thank-you"
+      />
+      <input
+        type="hidden"
+        name="_email.subject"
+        value="CKS: New potential client"
+      />
+      <!-- <form action="https://submit-form.com/echo"> -->
       <h3>Start the Transmission</h3>
 
       <Input
         label="Name"
         type="text"
-        name="name"
+        name="_email.from"
         placeholder="Name"
         required
         span="1"
@@ -40,24 +59,43 @@ import Button from "../components/Button.astro";
       />
 
       <Input
+        label="Which best describes the scope you’re imagining?"
+        type="select"
+        name="scope-of-project"
+        required
+        options={[
+          "A focused improvement or rebuild of an existing site",
+          "A full site build for a small business or solo practice",
+          "A custom feature, integration, or WordPress plugin",
+          "I’m not sure yet — looking for guidance",
+        ]}
+      />
+
+      <Input
         label="Tell us about your project."
         type="textarea"
-        name="about"
+        name="about-the-project"
         placeholder="Tell me about your project"
       />
 
       <Input
-        label="What are your primary goals for this project?"
+        label="What problem are you trying to solve with this project?"
         type="textarea"
-        name="goals"
+        name="problems-to-solve"
         required
       />
 
       <Input
-        label='What does a "successful" launch look like to you?'
+        label="What would make this project feel successful 3–6 months after launch?"
         type="textarea"
-        name="success"
+        name="measuring-success"
         required
+      />
+
+      <Input
+        label="Is there anything that would prevent this project from moving forward if we decide it’s a good fit?"
+        type="textarea"
+        name="blockers"
       />
 
       <Input
@@ -70,7 +108,7 @@ import Button from "../components/Button.astro";
       <Input
         label="What is your current website URL?"
         type="text"
-        name="website"
+        name="current-website"
         placeholder="https://example.com"
         span="2"
         showIf="isOnline"
@@ -79,9 +117,8 @@ import Button from "../components/Button.astro";
       <Input
         label="What is the biggest bottleneck in your current digital presence?"
         type="textarea"
-        name="bottleneck"
+        name="biggest-bottleneck"
         showIf="isOnline"
-        required
       />
 
       <div
@@ -92,7 +129,9 @@ import Button from "../components/Button.astro";
       >
       </div>
 
-      <Button type="submit" id="submitBtn" class="right">Send Message</Button>
+      <Button type="submit" id="submitBtn" class="right">
+        Send Transmission
+      </Button>
     </form>
   </Section>
   <script
