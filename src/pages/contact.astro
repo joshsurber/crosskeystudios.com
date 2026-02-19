@@ -6,8 +6,6 @@ import Button from "../components/Button.astro";
 ---
 
 <Layout title="Reach Out to the Studio">
-  <!-- <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script> -->
-
   <Section class="contact-studio">
     <p>
       I’m always open to discussing new projects, whether it’s a full site build
@@ -86,11 +84,21 @@ import Button from "../components/Button.astro";
         required
       />
 
-      <!-- <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div> -->
+      <div
+        class="cf-turnstile"
+        data-sitekey="0x4AAAAAACfpHVwEfPBEuLEA"
+        data-theme="dark"
+        data-size="normal"
+      >
+      </div>
 
       <Button type="submit" id="submitBtn" class="right">Send Message</Button>
     </form>
   </Section>
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer></script>
 </Layout>
 
 <style is:global>
