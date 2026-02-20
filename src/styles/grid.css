@@ -35,7 +35,7 @@
     [breakout-end]
     var(--full)
     [full-end];
-  gap: 1rem 0;
+  gap: var(--gap) 0;
 }
 
 /** CLASSES **/
