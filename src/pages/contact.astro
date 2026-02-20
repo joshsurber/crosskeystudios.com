@@ -8,8 +8,8 @@ import Button from "../components/Button.astro";
 <Layout title="Reach Out to the Studio">
   <Section class="contact-studio">
     <p>
-      I’m always open to discussing new projects, whether it’s a full site build
-      or a custom plugin for an existing WordPress setup.
+      We're always open to discussing new projects, whether it’s a full site
+      build or a custom plugin for an existing WordPress setup.
     </p>
 
     <p>
@@ -26,6 +26,7 @@ import Button from "../components/Button.astro";
       </small>
     </p>
 
+    <!-- <form action="https://submit-form.com/echo"> -->
     <form action="https://submit-form.com/JvwsNErL">
       <input
         type="hidden"
@@ -37,7 +38,6 @@ import Button from "../components/Button.astro";
         name="_email.subject"
         value="CKS: New potential client"
       />
-      <!-- <form action="https://submit-form.com/echo"> -->
       <h3>Start the Transmission</h3>
 
       <Input
@@ -72,11 +72,26 @@ import Button from "../components/Button.astro";
       />
 
       <Input
-        label="Tell us about your project."
-        type="textarea"
-        name="about-the-project"
-        placeholder="Tell me about your project"
+        label="What level of investment are you comfortable with for this project?"
+        type="select"
+        name="bugdet"
+        notes="This helps us recommend an approach that matches your goals and constraints."
+        required
+        options={[
+          "Under $1,000 (likely not a fit)",
+          "$1,000–$2,500",
+          "$2,500–$5,000",
+          "$5,000+",
+          "Not sure yet — looking for guidance",
+        ]}
       />
+
+      <!-- <Input -->
+      <!--   label="Tell us about your project." -->
+      <!--   type="textarea" -->
+      <!--   name="about-the-project" -->
+      <!--   placeholder="Tell me about your project" -->
+      <!-- /> -->
 
       <Input
         label="What problem are you trying to solve with this project?"
@@ -92,11 +107,11 @@ import Button from "../components/Button.astro";
         required
       />
 
-      <Input
-        label="Is there anything that would prevent this project from moving forward if we decide it’s a good fit?"
-        type="textarea"
-        name="blockers"
-      />
+      <!-- <Input -->
+      <!--   label="Is there anything that would prevent this project from moving forward if we decide it’s a good fit?" -->
+      <!--   type="textarea" -->
+      <!--   name="blockers" -->
+      <!-- /> -->
 
       <Input
         label="I already have a website and want to improve or replace it"
@@ -114,12 +129,21 @@ import Button from "../components/Button.astro";
         showIf="isOnline"
       />
 
-      <Input
-        label="What is the biggest bottleneck in your current digital presence?"
-        type="textarea"
-        name="biggest-bottleneck"
-        showIf="isOnline"
-      />
+      <!-- <Input -->
+      <!--   label="What is the biggest bottleneck in your current digital presence?" -->
+      <!--   type="textarea" -->
+      <!--   name="biggest-bottleneck" -->
+      <!--   showIf="isOnline" -->
+      <!-- /> -->
+
+      <small>
+        We read every submission personally and respond when it looks like a
+        strong fit.
+      </small>
+
+      <Button type="submit" id="submitBtn" class="right">
+        Send Transmission
+      </Button>
 
       <div
         class="cf-turnstile"
@@ -128,10 +152,6 @@ import Button from "../components/Button.astro";
         data-size="normal"
       >
       </div>
-
-      <Button type="submit" id="submitBtn" class="right">
-        Send Transmission
-      </Button>
     </form>
   </Section>
   <script
@@ -159,5 +179,8 @@ import Button from "../components/Button.astro";
     padding: 0;
     gap: var(--gap);
     border: none;
+  }
+  div {
+    text-align: right;
   }
 </style>
