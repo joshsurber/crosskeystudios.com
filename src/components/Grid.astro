@@ -4,8 +4,7 @@ import Section from "../components/Section.astro";
 const { title, ...rest } = Astro.props;
 ---
 
-<Section {...rest}>
-  <!-- {title && <h2>{title}</h2>} -->
+<Section {title} {...rest}>
   <div>
     <slot />
   </div>
