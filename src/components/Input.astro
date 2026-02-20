@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<"input" | "textarea" | "select"> {
   options?: string[];
 }
 
-const { label, type = "text", showIf, span, ...rest } = Astro.props;
+const { label, type = "text", showIf, span, notes, ...rest } = Astro.props;
 
 if (!rest.id) {
   rest.id = `input-${Math.random().toString(36).substr(2, 9)}`;
@@ -34,6 +34,7 @@ const Element = isSelect
     >
       <Element type={type} {...rest} />
       {label}
+      {notes && <small>{notes}</small>}
     </label>
   ) : (
     <label for={rest.id} data-show-if={showIf} data-span={span}>
@@ -52,6 +53,7 @@ const Element = isSelect
       ) : (
         <Element type={type} id={rest.id} {...rest} />
       )}
+      {notes && <small>{notes}</small>}
     </label>
   )
 }
@@ -86,18 +88,17 @@ const Element = isSelect
     field-sizing: content;
   }
 
-  /* Specific sizing for auto-expanding textareas */
   textarea {
-    min-height: 3rem;
-    resize: vertical; /* fallback for non-supporting browsers */
+    min-height: 4rem;
+    resize: vertical;
   }
 
-  /* Ensure choice inputs don't take 100% width */
   input[type="checkbox"],
   input[type="radio"] {
     width: auto;
     margin: 0;
   }
+
   input:user-invalid {
     border-color: red;
   }
