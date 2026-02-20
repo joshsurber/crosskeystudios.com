@@ -4,7 +4,7 @@ let src = `url(${image})`;
 ---
 
 <div>
-  <a href={href}>{title}</a>
+  <h3><a href={href}>{title}</a></h3>
   <blockquote>
     <slot />
     <cite>{contact}, {position}</cite>
@@ -13,11 +13,13 @@ let src = `url(${image})`;
 
 <style define:vars={{ src }}>
   div {
+  }
+  h3 {
+    /* display: grid; */
+    /* align-items: end; */
     aspect-ratio: 5/4;
+    padding-block-start: 10%;
     background: var(--src);
     background-size: cover;
-  }
-  a {
-    display: block;
   }
 </style>
