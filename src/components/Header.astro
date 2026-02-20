@@ -3,7 +3,7 @@ import Logo from "../components/Logo.astro";
 import Nav from "../components/Nav.astro";
 ---
 
-<header>
+<header class="site-header">
   <Logo alt="Cross Key Studios logo" height="5" />
   <Nav />
 </header>
@@ -21,9 +21,6 @@ import Nav from "../components/Nav.astro";
     background: black;
     box-shadow: 0 0 1rem -0.5rem var(--color-primary);
     opacity: 0.9;
-    @media (width < 45em) {
-      position: static;
-    }
     @media (height>40em) {
       position: sticky;
     }
