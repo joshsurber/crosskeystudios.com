@@ -20,6 +20,11 @@
     animation: neon-flicker 1.5s infinite alternate;
   }
 }
+
+img {
+  display: block;
+  max-width: 100%;
+}
 @keyframes neon-flicker {
   0%,
   19%,
