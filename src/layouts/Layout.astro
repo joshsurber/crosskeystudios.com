@@ -11,7 +11,8 @@ interface Props {
   isHome?: boolean; // Optional boolean prop
 }
 
-const { title, isHome = false } = Astro.props;
+const { title } = Astro.props;
+const isHome = false;
 const CKS = "Cross Key Studios";
 const titleTag = title ? `${title} | ${CKS}` : `${CKS}`;
 ---
@@ -29,7 +30,7 @@ const titleTag = title ? `${title} | ${CKS}` : `${CKS}`;
     <!-- <link rel="stylesheet" href="/style.css" /> -->
   </head>
 
-  <body class={isHome ? "home" : null}>
+  <body class="body">
     <!-- <header>{isHome ? <Hero /> : <Header />}</header> -->
     <Header />
     <Main>
