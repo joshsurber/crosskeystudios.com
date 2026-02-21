@@ -61,8 +61,8 @@ img {
 }
 p,
 li {
-  /* max-width: 65ch; */
-  /* margin-inline: auto; */
+  max-width: 65ch;
+  margin-inline: auto;
   font-size: var(--size-m);
   text-wrap: pretty;
 }
