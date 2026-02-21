@@ -1,11 +1,13 @@
 ---
 import Card from "../components/Card.astro";
+import Button from "../components/Button.astro";
 const {
   title,
   startingAt,
   intro,
   outro,
   listhead = "What's included",
+  button = "More info",
 } = Astro.props;
 const subtitle = `Starting at $${startingAt}`;
 ---
@@ -15,4 +17,5 @@ const subtitle = `Starting at $${startingAt}`;
   <strong>{listhead}:</strong>
   <div><slot /></div>
   <p>{outro}</p>
+  <Button href="/contact">{button}</Button>
 </Card>
