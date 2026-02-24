@@ -2,7 +2,7 @@
 const { title, subtitle, gap } = Astro.props;
 ---
 
-<div>
+<div class="card">
   <h3>{title}</h3>
   {subtitle && <strong>{subtitle}</strong>}
   <slot />
@@ -18,11 +18,11 @@ const { title, subtitle, gap } = Astro.props;
     position: relative;
     padding: var(--gap);
     overflow: hidden;
+    gap: var(--gap);
     border: 1px solid hsl(from var(--color-midpoint) h s l / 0.1);
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.03);
     transition: all 0.3s ease;
-
     &:hover {
       transform: translateY(-5px);
       /* border-color: #00e5ff;  */

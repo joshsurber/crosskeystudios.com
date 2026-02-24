@@ -4,7 +4,9 @@ import Nav from "../components/Nav.astro";
 ---
 
 <header class="site-header">
-  <Logo alt="Cross Key Studios logo" height="5" />
+  <a href="/home">
+    <Logo alt="Cross Key Studios logo" height="5" />
+  </a>
   <Nav />
 </header>
 
@@ -20,9 +22,14 @@ import Nav from "../components/Nav.astro";
     gap: var(--gap);
     background: black;
     box-shadow: 0 0 1rem -0.5rem var(--color-primary);
-    opacity: 0.9;
+    /* opacity: 0.9; */
     @media (height>40em) {
       position: sticky;
     }
+  }
+</style>
+<style is:global>
+  header {
+    opacity: 0.9;
   }
 </style>
