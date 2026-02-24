@@ -28,18 +28,13 @@ import Logo from "../components/Logo.astro";
     grid-column: wide;
     --hero-spacing: var(--space-xl-2xl);
     display: grid;
-    /* position: relative; */
     grid-template-columns: repeat(2, 1fr);
     grid-column: full;
     align-items: center;
     justify-items: center;
-    /* aspect-ratio: 16/8; */
-    /* width: 100vw; */
-    /* inset: 0 0 auto 50%; */
-    padding: 10vh var(--hero-spacing);
+    padding: var(--hero-spacing);
     overflow-x: clip;
     gap: var(--hero-spacing);
-    /* transform: translateX(-50%); */
     border-bottom: 1px solid black;
     background:
       conic-gradient(rgb(0 0 0 /0.5)),
@@ -54,7 +49,7 @@ import Logo from "../components/Logo.astro";
     aspect-ratio: 644/496;
     max-width: 644px;
     padding: 3rem;
-    transform: perspective(50vh) rotate3d(1, -1, 0, 30deg);
+    transform: perspective(50rem) rotate3d(1, -1, 0, 30deg);
     border: 1px solid black;
     border-radius: 1rem;
     background: var(--color-surface);
@@ -67,7 +62,6 @@ import Logo from "../components/Logo.astro";
       grid-template-columns: 1fr;
     }
     div {
-      /* grid-row: 2; */
       padding: 1rem;
     }
     .logo {
