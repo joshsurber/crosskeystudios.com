@@ -48,7 +48,7 @@ import Section from "../components/Section.astro";
 
     <Pricepoint
       title="Growth Site"
-      startingAt="4,500"
+      startingAt="4,000"
       intro="Our most common engagement. Built for established organizations ready to use their website as a business tool, not just a brochure."
       outro="Designed to scale, evolve, and support future marketing and content needs."
     >
@@ -65,7 +65,7 @@ import Section from "../components/Section.astro";
 
     <Pricepoint
       title="Custom & Advanced Builds"
-      startingAt="8,000"
+      startingAt="7,500"
       intro="For complex projects with specific technical or business requirements."
       outro="Pricing is determined by scope, goals, and technical complexity."
       listhead="Examples include"
@@ -81,7 +81,7 @@ import Section from "../components/Section.astro";
 
     <Pricepoint
       title="Ongoing Support"
-      startingAt="100/month"
+      startingAt="75/month"
       intro="Most clients choose to continue working with us after launch."
       outro="Support plans are optional but recommended for long‑term site health."
       listhead="Available plans"
@@ -91,14 +91,14 @@ import Section from "../components/Section.astro";
         <li>Core updates</li>
         <li>Monitoring</li>
         <li>Backups</li>
-        <li><strong>$100/mo</strong> or <strong>$1,000/yr</strong></li>
+        <li><strong>$75/mo</strong> or <strong>$750/yr</strong></li>
       </ul>
       <p><strong>Premier</strong></p>
       <ul>
         <li>Active support</li>
         <li>Improvements</li>
         <li>Priority fixes</li>
-        <li><strong>$350/mo</strong> or <strong>$3,500/yr</strong></li>
+        <li><strong>$250/mo</strong> or <strong>$2,500/yr</strong></li>
       </ul>
     </Pricepoint>
   </div>
@@ -106,11 +106,9 @@ import Section from "../components/Section.astro";
 
 <style>
   .grid {
-    /* --gap: var(--space-xs); */
     display: grid;
     position: relative;
     left: 0;
-    /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); */
     grid-column: full;
     width: min(100% - 2rem, 80rem);
     margin-inline: auto;
@@ -126,8 +124,18 @@ import Section from "../components/Section.astro";
     @media (width>70rem) {
       grid-template-columns: repeat(4, 1fr);
       > :last-child {
+        --gap: 1rem;
         margin-inline-start: var(--gap);
       }
     }
+  }
+</style>
+<style is:global>
+  .card h3 {
+    align-self: end;
+    margin: 0;
+  }
+  .card p {
+    margin: 0;
   }
 </style>
