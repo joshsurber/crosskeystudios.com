@@ -123,8 +123,8 @@ import Section from "../components/Section.astro";
     }
     @media (width>70rem) {
       grid-template-columns: repeat(4, 1fr);
+      --gap: 1rem;
       > :last-child {
-        --gap: 1rem;
         margin-inline-start: var(--gap);
       }
     }
