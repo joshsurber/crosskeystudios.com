@@ -14,7 +14,7 @@ const { title, ...rest } = Astro.props;
 <style>
   section {
     grid-column: full;
-    max-width: 80rem;
+    /* max-width: 80rem; */
     margin-inline: auto;
     padding: 0 var(--gap);
   }
@@ -22,6 +22,7 @@ const { title, ...rest } = Astro.props;
   div {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    max-width: 80rem;
     margin: 0 auto;
     gap: var(--gap);
   }
