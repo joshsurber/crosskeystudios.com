@@ -15,9 +15,9 @@ const { title } = Astro.props;
 const isHome = false;
 const CKS = "Cross Key Studios";
 const titleTag = title ? `${title} | ${CKS}` : `${CKS}`;
+import { ClientRouter } from "astro:transitions";
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -28,6 +28,7 @@ const titleTag = title ? `${title} | ${CKS}` : `${CKS}`;
     <meta name="generator" content={Astro.generator} />
     <title>{titleTag}</title>
     <!-- <link rel="stylesheet" href="/style.css" /> -->
+    <ClientRouter />
   </head>
 
   <body class="body">
